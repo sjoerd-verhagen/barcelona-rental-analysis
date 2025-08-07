@@ -218,6 +218,8 @@ print(f"❌ Missing values in bedrooms_clean: {missing}")
 print("\n📊 Descriptive statistics for bedrooms_clean:")
 print(df['bedrooms_clean'].describe())
 ```
+</details>
+
 
 ## Chapter 2 – SQL Analysis
 
