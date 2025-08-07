@@ -275,7 +275,7 @@ print(f"\n✅ Geocoded file saved to: {output_path}")
 </details>
 
 
-## Chapter 2 – Data Analysis through SQL
+## Chapter 2 – Data Analysis (SQL)
 
 <details>
   <summary>Step 2.1 – bladibla</summary
@@ -313,7 +313,39 @@ Let us take a look at the table
 Just to get an overview, I think as Nou Barris and Sant Andreu only have this many listings, I will exclude them as they are a very small sample size. Statistically with explorationary studies you take 30, and I will take that too as a benchmark. Lets focus on the other neighbourhoods with bigger sample sizes.
 </details>
 
+<details>
+  <summary>Step 2.2 – Which districts give the best value for money (€/m²)? </summary
 
+To answer this question lets take a look at the sqlquery...
+
+```sql
+SELECT 
+  district,
+  COUNT(*) AS number_of_listings,
+  ROUND(AVG(price_per_m2_clean),2) AS avg_price_per_m2,
+  MIN(price_per_m2_clean) AS min_price_per_m2,
+  MAX(price_per_m2_clean) AS max_price_per_m2,
+  ROUND(STDDEV_SAMP(price_per_m2_clean),2) AS stddev_price_per_m2
+FROM table_v4
+WHERE district NOT IN ('Sant Andreu', 'Nou Barris') 
+GROUP BY district
+ORDER BY avg_price_per_m2 ASC; 
+```
+
+In this table:
+
+| district            | price_diff_2b_vs_1b | pct_diff_2b_vs_1b | avg_rent_1b | avg_rent_2b |
+|---------------------|---------------------|-------------------|-------------|-------------|
+| Les Corts           |               62.42 |              4.11 |      1519.1 |     1581.52 |
+| Sants-Montjuïc      |              104.96 |              7.63 |     1375.14 |     1480.11 |
+| Sarrià-Sant Gervasi |              132.93 |              9.19 |     1447.13 |     1580.06 |
+| Eixample            |              176.34 |             11.73 |     1502.96 |      1679.3 |
+| Gràcia              |              206.82 |             14.68 |     1409.24 |     1616.06 |
+| Sant Martí          |              228.57 |             15.35 |        1489 |     1717.57 |
+| Ciutat Vella        |              239.47 |              19.4 |     1234.53 |        1474 |
+| Horta Guinardó      |              262.49 |             23.93 |     1096.87 |     1359.35 |
+
+**Horta Guinardó** and **Les Corts** give the best average price per m2, with a similar st dev compared to the other neighbourhoods. The average price is quie a bit lower then the other neighbourhoods, with a similar stdev. 
 
 
 
