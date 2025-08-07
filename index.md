@@ -46,8 +46,8 @@ As I want a place that also has have some quiet next to the busy city life
 
 
 ## Project Steps
-
 <details>
+  
   <summary>🏠 Barcelona Rental Market Analysis</summary>
 
 ```python
@@ -108,4 +108,3 @@ print("\nFIRST 5 ROWS:")
 print(df.head())
 
   </details>
-
