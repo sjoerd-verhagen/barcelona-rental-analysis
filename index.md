@@ -1,3 +1,8 @@
+---
+layout: default
+title: Rental Market Analysis
+---
+
 # 🏙️ Barcelona Rental Market Analysis
 
 **Author:** Sjoerd Verhagen  
