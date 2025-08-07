@@ -47,22 +47,16 @@ As I want a place that also has have some quiet next to the busy city life
 
 ## Project Steps
 <details>
-  
-  <summary>Step 1 - Data Cleaning</summary>
+
+For step 1 I used Python to clean the data into 
 
 ```python
 
-    <summary>📈 ##📈 Step 1 - Data cleaning 📈 Tableau Dashboard</summary>
 import os
 import pandas as pd
 
-# Folder where all CSVs are stored
 folder_path = "/Users/sjoerdv/Documents/PERSOONLIJK/Portfolio/Data 27 jul"
-
-# Get all CSV files in the folder
 csv_files = [f for f in os.listdir(folder_path) if f.endswith(".csv")]
-
-# List to store each file's DataFrame
 df_list = []
 
 # Loop through and read each file
