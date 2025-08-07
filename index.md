@@ -100,6 +100,7 @@ print(df.describe(include=['object']))
 # Preview first 5 rows
 print("\nFIRST 5 ROWS:")
 print(df.head())
+```
 
 </details> <details> <summary>Step 2 – Cleaning up key columns</summary>
 
