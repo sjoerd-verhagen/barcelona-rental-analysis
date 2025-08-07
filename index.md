@@ -42,6 +42,9 @@ As I want a place that also has have some quiet next to the busy city life
 
 ---
 
+
+
+
 ## 📈 Tableau Dashboard
 
 🔗 [View the interactive dashboard](https://public.tableau.com/views/YOUR-DASHBOARD-LINK)
@@ -51,6 +54,18 @@ Screenshot preview below:
 ![Tableau Preview](images/tableau-preview.png) <!-- optional screenshot -->
 
 ---
+
+<details>
+  <summary>🏠 Barcelona Rental Market Analysis</summary>
+
+  Summary text...
+
+  <details>
+    <summary>📈 Tableau Dashboard</summary>
+
+    <iframe src="..." width="100%" height="400"></iframe>
+
+  </details>
 
 ## 🐍 Python Code (Data Cleaning)
 
