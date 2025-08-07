@@ -218,8 +218,11 @@ print(f"❌ Missing values in bedrooms_clean: {missing}")
 print("\n📊 Descriptive statistics for bedrooms_clean:")
 print(df['bedrooms_clean'].describe())
 ```
-</details> <details>
-  <summary>Step 4 – GeoDatas</summary
+</details> 
+
+</details> <details> <summary> Step 4 – GeoData</summary>
+
+In this step,
 
 ```python
 import pandas as pd
