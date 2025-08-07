@@ -48,12 +48,11 @@ As I want a place that also has have some quiet next to the busy city life
 ## Project Steps
 
 <details>
-  <summary>Step 1</summary
+  <summary>Step 1 – Combining the raw files</summary
 
 For step 1, I used Python to combine all individual CSV files into one dataset. I loaded each file from the project folder, appended them to a list of DataFrames, and then concatenated everything into a single DataFrame. I saved this as a new CSV file and quickly explored its structure to check that everything had loaded correctly.
 
 ```python
-
 import os
 import pandas as pd
 
@@ -101,8 +100,6 @@ print(df.describe(include=['object']))
 # Preview first 5 rows
 print("\nFIRST 5 ROWS:")
 print(df.head())
-
-
 
 </details> <details> <summary>Step 2 – Cleaning up key columns</summary>
 
