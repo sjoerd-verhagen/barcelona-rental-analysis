@@ -457,4 +457,50 @@ ORDER BY price_diff_2b_vs_1b DESC;
 You see here that the lowest change is in Les Corts, followed by Sants-Montjuïc. Interestingly, in Sants-Montjuïc has the single lowest change for a second bedroom, and it has the top 3 lowest average rent costs as well. Where for Cuitat Vella en Horta Guinardo, the difference between one and two bedrooms was the biggest, even though they were the ones with the lowest rent. Could it be that it is skewed because there are way more 1 bedroom listings?
 </details>
 
+<details>
+  <summary>Step 2.6 – Lets dive a bit deeper (per district) </summary
+
+Introduct the SQL here
+```sql
+WITH rent_counts AS (
+    SELECT 
+        district,
+        bedrooms_cleaned,
+        COUNT(*) AS listings_count,
+        ROUND(AVG(price_clean), 2) AS avg_rent
+    FROM table_v4
+    WHERE bedrooms_cleaned IN (1, 2)
+      AND district NOT IN ('Sant Andreu', 'Nou Barris')
+    GROUP BY district, bedrooms_cleaned
+)
+SELECT 
+    r1.district,
+    r1.listings_count AS one_bed_count,
+    r2.listings_count AS two_bed_count,
+    ROUND(r1.avg_rent, 2) AS avg_rent_1b,
+    ROUND(r2.avg_rent, 2) AS avg_rent_2b,
+    ROUND(r2.avg_rent - r1.avg_rent, 2) AS price_diff,
+    ROUND(((r2.avg_rent - r1.avg_rent) / r1.avg_rent) * 100, 2) AS pct_diff
+FROM rent_counts r1
+JOIN rent_counts r2
+  ON r1.district = r2.district
+WHERE r1.bedrooms_cleaned = 1
+  AND r2.bedrooms_cleaned = 2
+ORDER BY pct_diff ASC;
+```
+
+| district            | one_bed_count | two_bed_count | avg_rent_1b | avg_rent_2b | price_diff | pct_diff |
+|---------------------|---------------|---------------|-------------|-------------|------------|----------|
+| Les Corts           |            10 |            23 |      1519.1 |     1581.52 |      62.42 |     4.11 |
+| Sants-Montjuïc      |            69 |            73 |     1375.14 |     1480.11 |     104.97 |     7.63 |
+| Sarrià-Sant Gervasi |            78 |            64 |     1447.13 |     1580.06 |     132.93 |     9.19 |
+| Eixample            |           159 |           132 |     1502.96 |      1679.3 |     176.34 |    11.73 |
+| Gràcia              |            50 |            85 |     1409.24 |     1616.06 |     206.82 |    14.68 |
+| Sant Martí          |            30 |            68 |        1489 |     1717.57 |     228.57 |    15.35 |
+| Ciutat Vella        |           371 |           286 |     1234.53 |        1474 |     239.47 |     19.4 |
+| Horta Guinardó      |            15 |            31 |     1096.87 |     1359.35 |     262.48 |    23.93 |
+
+As we see here is that indeed Horta Guinardo has the lowest number of listings, followed by Les Corts. Interesting, Cuitat Vella had the most listings. Here it seems that for bigger apartments with 2 bedrooms **Sants-Montjuïc** seems to be a good fit, as it has a good number of listings, a low average rent (top3), for a 1 bedroom apartment, and a low average rent for a 2 bedroom apartment (3rd place).
+</details>
+
 
