@@ -222,5 +222,56 @@ print(df['bedrooms_clean'].describe())
 
 
 ## Chapter 2 – SQL Analysis
+<details>
+  <summary>Step 4 – GeoDatas</summary
 
+```python
+import pandas as pd
+from opencage.geocoder import OpenCageGeocode
+import time
+from tqdm import tqdm  # progress bar
+
+# API key
+key = '0a2df27082034108b046e61491ef609d'
+geocoder = OpenCageGeocode(key)
+
+# Load cleaned CSV
+file_path = "/Users/sjoerdv/Documents/PERSOONLIJK/Portfolio/Data 27 jul/all_rent_data_cleaned_v3.csv"
+df = pd.read_csv(file_path)
+
+# Create address query (Street + Subdistrict + District + Barcelona, Spain)
+def build_query(row):
+    parts = [row['street_cleaned'], row['subdistrict'], row['district'], 'Barcelona, Spain']
+    return ', '.join([p for p in parts if pd.notna(p)])
+
+df['full_address'] = df.apply(build_query, axis=1)
+
+# Geocode function
+def geocode_address(query):
+    try:
+        results = geocoder.geocode(query)
+        if results and len(results):
+            lat = results[0]['geometry']['lat']
+            lng = results[0]['geometry']['lng']
+            country_code = results[0]['components'].get('country_code', '')
+            timezone = results[0]['annotations']['timezone']['name']
+            return pd.Series([lat, lng, country_code, timezone])
+        else:
+            return pd.Series([None, None, None, None])
+    except Exception as e:
+        print(f"Error geocoding {query}: {e}")
+        return pd.Series([None, None, None, None])
+
+# Apply geocoding with progress bar (and respect free tier: 1 request/sec)
+tqdm.pandas()
+df[['latitude', 'longitude', 'country_code', 'timezone']] = df['full_address'].progress_apply(lambda x: geocode_address(x))
+    # Pause between requests to respect API rate limit
+    # time.sleep(1)  # Uncomment if needed for free tier limit
+
+# Save results
+output_path = "/Users/sjoerdv/Documents/PERSOONLIJK/Portfolio/Data 27 jul/all_rent_data_geocoded.csv"
+df.to_csv(output_path, index=False)
+print(f"\n✅ Geocoded file saved to: {output_path}")
+```
+</details>
 
