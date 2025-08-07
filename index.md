@@ -274,3 +274,37 @@ print(f"\n✅ Geocoded file saved to: {output_path}")
 ```
 </details>
 
+
+## Chapter 2 – Data Analysis through SQL
+
+```sql
+SELECT 
+  district, 
+  COUNT(*) AS number_of_listings,
+  ROUND(AVG(price_clean),2) AS avg_price,
+  MIN(price_clean) AS min_price,
+  MAX(price_clean) AS max_price,
+  ROUND(STDDEV_SAMP(price_clean),2) AS stddev_price
+FROM table_v4
+GROUP BY district
+ORDER BY avg_price DESC;
+```
+
+| "district"            | "number_of_listings" | "avg_price" | "min_price" | "max_price" | "stddev_price" |
+|-----------------------|----------------------|-------------|-------------|-------------|----------------|
+| "Sant Martí"          | 134                  | 1627.01     | 650         | 2000        | 320.09         |
+| "Eixample"            | 434                  | 1611.85     | 750         | 2000        | 293.27         |
+| "Sant Andreu"         | 34                   | 1596.03     | 990         | 2000        | 357.77         |
+| "Les Corts"           | 66                   | 1591.97     | 850         | 2000        | 295.73         |
+| "Gràcia"              | 199                  | 1543.67     | 800         | 2000        | 306.06         |
+| "Sarrià-Sant Gervasi" | 200                  | 1523.50     | 865         | 2000        | 244.91         |
+| "Nou Barris"          | 17                   | 1479.12     | 850         | 2000        | 344.61         |
+| "Sants-Montjuïc"      | 200                  | 1441.33     | 945         | 2000        | 244.22         |
+| "Ciutat Vella"        | 846                  | 1339.66     | 700         | 2000        | 303.65         |
+| "Horta Guinardó"      | 88                   | 1299.02     | 750         | 1995        | 284.45         |
+
+
+
+
+
+
