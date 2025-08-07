@@ -141,3 +141,84 @@ print("\nNon-missing values:")
 print("price_clean:         ", df['price_clean'].notna().sum())
 print("price_per_m2_clean:  ", df['price_per_m2_clean'].notna().sum())
 print("size_clean:          ", df['size_clean'].notna().sum())
+```
+<details>
+  <summary>Step 3 – Further cleaning</summary
+
+For step 3, ...
+
+```python
+import pandas as pd
+
+# Load the dataset
+file_path = "/Users/sjoerdv/Documents/PERSOONLIJK/Portfolio/Data 27 jul/all_rent_data_cleaned.csv"
+df = pd.read_csv(file_path)
+
+# Extract number of bedrooms (e.g. "2 bed." → 2.0)
+df['bedrooms_clean'] = df['bedrooms'].str.extract(r'(\d+)').astype(float)
+
+# Preview cleaned results
+print("\n🛏️ Bedrooms cleaned preview:")
+print(df[['bedrooms', 'bedrooms_clean']].head(10))
+
+# Show descriptive statistics
+print("\n📊 Descriptive statistics for bedrooms:")
+print(df['bedrooms_clean'].describe())
+
+# Save the updated file
+output_path = "/Users/sjoerdv/Documents/PERSOONLIJK/Portfolio/Data 27 jul/all_rent_data_cleaned_v2.csv"
+df.to_csv(output_path, index=False)
+
+print(f"\n✅ File saved with cleaned bedrooms column:\n{output_path}")
+
+
+——————
+Code Block 3
+
+
+import numpy as np
+
+# Step 1: Extract numeric bedrooms from 'bedrooms' column
+df['bedrooms_clean'] = df['bedrooms'].str.extract(r'(\d+)').astype(float)
+
+# Step 2: Fill in 0 where listing-link indicates a Studio
+is_studio = df['listing-link'].str.contains(r'\b[Ss]tudio\b', na=False)
+df.loc[is_studio, 'bedrooms_clean'] = 0
+
+# Step 3: Preview the result
+print("\n🛏️ Cleaned bedrooms (including Studio):")
+print(df[['listing-link', 'bedrooms', 'bedrooms_clean']].head(10))
+
+# Step 4: Show stats
+print("\n📊 Descriptive statistics for bedrooms_clean:")
+print(df['bedrooms_clean'].describe())
+
+# Step 5: Count missing values
+print("\n❌ Missing values in bedrooms_clean:", df['bedrooms_clean'].isna().sum())
+
+
+
+———————
+
+
+# Fix remaining missing bedrooms based on keywords like 'Studio', 'Loft', etc.
+studio_keywords = r'(Studio|Loft|Mini|Open-plan)'
+studio_mask = df['bedrooms_clean'].isna() & df['listing-link'].str.contains(studio_keywords, case=False, na=False)
+df.loc[studio_mask, 'bedrooms_clean'] = 0
+
+# As fallback, fill any remaining NaNs with 0
+df['bedrooms_clean'] = df['bedrooms_clean'].fillna(0)
+
+# Ensure the column is numeric
+df['bedrooms_clean'] = df['bedrooms_clean'].astype(int)
+
+# Check for remaining missing values
+missing = df['bedrooms_clean'].isna().sum()
+print(f"❌ Missing values in bedrooms_clean: {missing}")
+
+# Show descriptive statistics
+print("\n📊 Descriptive statistics for bedrooms_clean:")
+print(df['bedrooms_clean'].describe())
+```
+
+
