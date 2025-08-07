@@ -8,29 +8,37 @@
 
 ## 🎯 Project Goal
 
-Understand the rental market in Barcelona before relocating — specifically:
-- Where you get the best €/m²
-- Where supply is highest
-- What average sizes and rents are in each district
+My girlfriend and I will move to Barcelona in September 2025. To use my new skills in python, SQL and Tableau I thought of a project that is something I really want to figure out and also that will display what I learnt in my courses. 
+
+To prepare for our move, I analysed the rental market using data from Idealista, the city’s most popular housing platform. With a student budget, I focused on furnished flats under €2,000 a month to see what is realistic and where to start our search. Through the analysis i hope to narrow down the choices of neighbourhoods, to get a feel for the city and to see whether there are certain districts better suited for our choice.
+
+I aimed to answer:
+- Which districts give us the best value for money (€/m²)?
+- Which districts have the largest rental supply? 
+- What are the average sizes and rents by district?
+
 
 ---
 
 ## 🔍 Key Questions
 
-- 💸 Which districts offer the best **value for money** (€/m²)?
-- 🏘️ Where is **rental supply** most concentrated?
-- 📏 What are the **average sizes and rents** by district?
-- 🛏️ What’s the **price difference** between one-bedroom and two-bedroom flats?
-- 📍 Which non-central districts (like Gràcia, Sants, or Poblenou) offer a good **balance of price and space**?
+In order to dig a little deeper into the real interesting questions:
+As I want to have a place where friends can stay over  
+- How much more do two-bedroom flats cost compared to one-bedroom flats?
+
+As I want a place that also has have some quiet next to the busy city life 
+- Which districts just outside the centre (like Gràcia, Poble-Sec, Poblenou, Sants, and Sant Antoni) offer good balance between price, space?
+
 
 ---
 
 ## 🛠️ Tools Used
 
-- 🧹 **Python** – For cleaning and preparing data  
-- 📊 **SQL** – For grouping, aggregating and filtering  
-- 🌍 **Tableau** – For interactive visualizations  
-- 🕸️ **Web Scraping** – Idealista rental data
+- Open Web Scraper for collecting rental data
+- Python for cleaning and preparing the data
+- Open Geo Code for mapping coordinates
+- SQL for queries and aggregations
+- Tableau for creating clear visual insights
 
 ---
 
