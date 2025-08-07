@@ -348,6 +348,36 @@ In this table:
 | Sant Martí          |                134 |       66.08 |  1627.01 |      650 |     2000 |      320.09 |
 
 **Horta Guinardó** and **Les Corts** give the best average price per m2, with a similar st dev compared to the other neighbourhoods. The average price is quie a bit lower then the other neighbourhoods, with a similar stdev. 
+</details>
 
+<details>
+  <summary>Step 2.3 – Where is the largest rental supply? (with what variance?) (€/m²)? </summary
 
+Here introducing the SQL
+
+```sql
+SELECT 
+  district,
+  COUNT(*) AS number_of_listings,
+  ROUND(VAR_SAMP(price_clean),2) AS price_variance,
+  ROUND(STDDEV_SAMP(price_clean),1) AS price_stddev
+FROM table_v4
+WHERE district NOT IN ('Sant Andreu', 'Nou Barris')
+GROUP BY district
+ORDER BY price_stddev DESC;
+```
+
+| district            | number_of_listings | price_variance | price_stddev |
+|---------------------|--------------------|----------------|--------------|
+| Ciutat Vella        |                846 |       92201.29 |        303.6 |
+| Eixample            |                434 |        86004.7 |        293.3 |
+| Sarrià-Sant Gervasi |                200 |       59978.54 |        244.9 |
+| Sants-Montjuïc      |                200 |       59644.13 |        244.2 |
+| Gràcia              |                199 |       93673.88 |        306.1 |
+| Sant Martí          |                134 |      102454.79 |        320.1 |
+| Horta Guinardó      |                 88 |       80911.56 |        284.4 |
+| Les Corts           |                 66 |       87456.15 |        295.7 |
+
+The biggest rental supply is in Ciuttat Vella, Followed by Exiample. We see here that the standard deviation of the price is also the lowest in Sarrià-Sant Gervasi and Sants-Montjuï, which have the third and forth most listings available. Even thought they had greater average pricesthen Les Corts and Guinardo. The biggest variance is in Sant Marti. 
+</details>
 
