@@ -46,7 +46,8 @@ As I want a place that also has have some quiet next to the busy city life
 
 
 ## Project Steps
-<details> Step 1 </details>
+
+<summary> Step 1 </summary>
 
 For step 1 I used Python to clean the data into 
 
