@@ -42,10 +42,7 @@ As I want a place that also has have some quiet next to the busy city life
 
 ---
 
-
-
-
-## Project Steps
+## Chapter 1 – Data Cleaning
 
 <details>
   <summary>Step 1 – Combining the raw files</summary
@@ -221,5 +218,7 @@ print(f"❌ Missing values in bedrooms_clean: {missing}")
 print("\n📊 Descriptive statistics for bedrooms_clean:")
 print(df['bedrooms_clean'].describe())
 ```
+
+## Chapter 2 – SQL Analysis
 
 
