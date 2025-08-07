@@ -48,11 +48,10 @@ As I want a place that also has have some quiet next to the busy city life
 ## Project Steps
 <details>
   
-  <summary>🏠 Barcelona Rental Market Analysis</summary>
+  <summary>Step 1 - Data Cleaning</summary>
 
 ```python
 
-  <details>
     <summary>📈 ##📈 Step 1 - Data cleaning 📈 Tableau Dashboard</summary>
 import os
 import pandas as pd
@@ -106,5 +105,3 @@ print(df.describe(include=['object']))
 # Preview first 5 rows
 print("\nFIRST 5 ROWS:")
 print(df.head())
-
-  </details>
