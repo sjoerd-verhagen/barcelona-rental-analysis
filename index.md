@@ -50,7 +50,7 @@ As I want a place that also has have some quiet next to the busy city life
 <details>
   <summary>Step 1</summary
 
-For step 1 I used Python to clean the data into 
+For step 1, I used Python to combine all individual CSV files into one dataset. I loaded each file from the project folder, appended them to a list of DataFrames, and then concatenated everything into a single DataFrame. I saved this as a new CSV file and quickly explored its structure to check that everything had loaded correctly.
 
 ```python
 
@@ -104,8 +104,7 @@ print(df.head())
 
 
 
-<details>
-  <summary>Step 2 – Cleaning up columns</summary
+</details> <details> <summary>Step 2 – Cleaning up key columns</summary>
 
 In this step, I cleaned the price, size, and price-per-m² columns. The raw data included symbols like “€” and “m²”. I stripped those out so the values are now usable as proper numbers.
 - Converted price to price_clean, containing just the amount as a float.
