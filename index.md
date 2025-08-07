@@ -277,6 +277,11 @@ print(f"\n✅ Geocoded file saved to: {output_path}")
 
 ## Chapter 2 – Data Analysis through SQL
 
+<details>
+  <summary>Step 2.1 – bladibla</summary
+
+For step 1,
+
 ```sql
 SELECT 
   district, 
@@ -289,6 +294,8 @@ FROM table_v4
 GROUP BY district
 ORDER BY avg_price DESC;
 ```
+
+Let us take a look at the table
 
 | "district"            | "number_of_listings" | "avg_price" | "min_price" | "max_price" | "stddev_price" |
 |-----------------------|----------------------|-------------|-------------|-------------|----------------|
@@ -303,6 +310,8 @@ ORDER BY avg_price DESC;
 | "Ciutat Vella"        | 846                  | 1339.66     | 700         | 2000        | 303.65         |
 | "Horta Guinardó"      | 88                   | 1299.02     | 750         | 1995        | 284.45         |
 
+Just to get an overview, I think as Nou Barris and Sant Andreu only have this many listings, I will exclude them as they are a very small sample size. Statistically with explorationary studies you take 30, and I will take that too as a benchmark. Lets focus on the other neighbourhoods with bigger sample sizes.
+</details>
 
 
 
