@@ -34,11 +34,11 @@ As I want a place that also has have some quiet next to the busy city life
 
 ## 🛠️ Tools Used
 
-- Open Web Scraper for collecting rental data
-- Python for cleaning and preparing the data
-- Open Geo Code for mapping coordinates
-- SQL for queries and aggregations
-- Tableau for creating clear visual insights
+1. Open Web Scraper for collecting rental data
+2. Python for cleaning and preparing the data
+3.  Open Geo Code for mapping coordinates
+4.  SQL for queries and aggregations
+5. Tableau for creating clear visual insights
 
 ---
 
