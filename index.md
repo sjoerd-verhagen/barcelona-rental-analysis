@@ -101,3 +101,44 @@ print(df.describe(include=['object']))
 # Preview first 5 rows
 print("\nFIRST 5 ROWS:")
 print(df.head())
+
+<details>
+  <summary>Step 2 – Cleaning up columns</summary
+
+In this step, I cleaned the price, size, and price-per-m² columns. The raw data included symbols like “€” and “m²”. I stripped those out so the values are now usable as proper numbers.
+- Converted price to price_clean, containing just the amount as a float.
+- Did the same for price_per_m2 and size, which now have clean numerical values in new columns.
+- Finally, I checked for missing values in those cleaned columns.
+
+
+```python
+import pandas as pd
+
+# Load your dataset
+file_path = "/Users/sjoerdv/Documents/PERSOONLIJK/Portfolio/Data 27 jul/all_rent_data.csv"
+df = pd.read_csv(file_path)
+
+# Clean 'price' (e.g. "1,100 €/month" → 1100.0)
+df['price_clean'] = df['price'].str.replace(r'[^\d,]', '', regex=True)\
+                                .str.replace(',', '')\
+                                .astype(float)
+
+# Clean 'price_per_m2' (e.g. "73.33 €/m²" → 73.33)
+df['price_per_m2_clean'] = df['price_per_m2'].str.replace(r'[^\d.,]', '', regex=True)\
+                                             .str.replace(',', '')\
+                                             .astype(float)
+
+# Clean 'size' (e.g. "15 m²" → 15.0)
+df['size_clean'] = df['size'].str.replace(r'[^\d.,]', '', regex=True)\
+                              .str.replace(',', '')\
+                              .astype(float)
+
+# Preview cleaned values
+print("\nCleaned values:")
+print(df[['price', 'price_clean', 'price_per_m2', 'price_per_m2_clean', 'size', 'size_clean']].head(10))
+
+# Count non-missing values in each cleaned column
+print("\nNon-missing values:")
+print("price_clean:         ", df['price_clean'].notna().sum())
+print("price_per_m2_clean:  ", df['price_per_m2_clean'].notna().sum())
+print("size_clean:          ", df['size_clean'].notna().sum())
