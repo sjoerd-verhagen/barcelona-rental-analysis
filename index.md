@@ -334,16 +334,18 @@ ORDER BY avg_price_per_m2 ASC;
 
 In this table:
 
-| district            | price_diff_2b_vs_1b | pct_diff_2b_vs_1b | avg_rent_1b | avg_rent_2b |
-|---------------------|---------------------|-------------------|-------------|-------------|
-| Les Corts           |               62.42 |              4.11 |      1519.1 |     1581.52 |
-| Sants-Montjuïc      |              104.96 |              7.63 |     1375.14 |     1480.11 |
-| Sarrià-Sant Gervasi |              132.93 |              9.19 |     1447.13 |     1580.06 |
-| Eixample            |              176.34 |             11.73 |     1502.96 |      1679.3 |
-| Gràcia              |              206.82 |             14.68 |     1409.24 |     1616.06 |
-| Sant Martí          |              228.57 |             15.35 |        1489 |     1717.57 |
-| Ciutat Vella        |              239.47 |              19.4 |     1234.53 |        1474 |
-| Horta Guinardó      |              262.49 |             23.93 |     1096.87 |     1359.35 |
+| district            | number_of_listings | avg_size_m2 | avg_rent | min_rent | max_rent | rent_stddev |
+|---------------------|--------------------|-------------|----------|----------|----------|-------------|
+| Horta Guinardó      |                 88 |       68.75 |  1299.02 |      750 |     1995 |      284.45 |
+| Ciutat Vella        |                846 |       54.15 |  1339.66 |      700 |     2000 |      303.65 |
+| Sants-Montjuïc      |                200 |       59.59 |  1441.33 |      945 |     2000 |      244.22 |
+| Nou Barris          |                 17 |       80.76 |  1479.12 |      850 |     2000 |      344.61 |
+| Sarrià-Sant Gervasi |                200 |       62.61 |   1523.5 |      865 |     2000 |      244.91 |
+| Gràcia              |                199 |        63.9 |  1543.67 |      800 |     2000 |      306.06 |
+| Les Corts           |                 66 |       73.26 |  1591.97 |      850 |     2000 |      295.73 |
+| Sant Andreu         |                 34 |       69.18 |  1596.03 |      990 |     2000 |      357.77 |
+| Eixample            |                434 |       65.59 |  1611.85 |      750 |     2000 |      293.27 |
+| Sant Martí          |                134 |       66.08 |  1627.01 |      650 |     2000 |      320.09 |
 
 **Horta Guinardó** and **Les Corts** give the best average price per m2, with a similar st dev compared to the other neighbourhoods. The average price is quie a bit lower then the other neighbourhoods, with a similar stdev. 
 
