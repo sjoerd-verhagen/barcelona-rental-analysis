@@ -100,9 +100,9 @@ print(df.describe(include=['object']))
 # Preview first 5 rows
 print("\nFIRST 5 ROWS:")
 print(df.head())
-```
+```</details> 
 
-</details> <details> <summary>Step 2 – Cleaning up key columns</summary>
+<details> <summary>Step 2 – Cleaning up key columns</summary>
 
 In this step, I cleaned the price, size, and price-per-m² columns. The raw data included symbols like “€” and “m²”. I stripped those out so the values are now usable as proper numbers.
 - Converted price to price_clean, containing just the amount as a float.
@@ -141,7 +141,8 @@ print("\nNon-missing values:")
 print("price_clean:         ", df['price_clean'].notna().sum())
 print("price_per_m2_clean:  ", df['price_per_m2_clean'].notna().sum())
 print("size_clean:          ", df['size_clean'].notna().sum())
-```
+```</details>
+
 <details>
   <summary>Step 3 – Further cleaning</summary
 
@@ -219,6 +220,4 @@ print(f"❌ Missing values in bedrooms_clean: {missing}")
 # Show descriptive statistics
 print("\n📊 Descriptive statistics for bedrooms_clean:")
 print(df['bedrooms_clean'].describe())
-```
-
-
+```</details> 
