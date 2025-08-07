@@ -45,45 +45,67 @@ As I want a place that also has have some quiet next to the busy city life
 
 
 
-## 📈 Tableau Dashboard
-
-🔗 [View the interactive dashboard](https://public.tableau.com/views/YOUR-DASHBOARD-LINK)
-
-Screenshot preview below:
-
-![Tableau Preview](images/tableau-preview.png) <!-- optional screenshot -->
-
----
+## Project Steps
 
 <details>
   <summary>🏠 Barcelona Rental Market Analysis</summary>
 
-  Summary text...
+```python
 
   <details>
-    <summary>📈 Tableau Dashboard</summary>
+    <summary>📈 ##📈 Step 1 - Data cleaning 📈 Tableau Dashboard</summary>
+import os
+import pandas as pd
 
-    check check dit is een test
+# Folder where all CSVs are stored
+folder_path = "/Users/sjoerdv/Documents/PERSOONLIJK/Portfolio/Data 27 jul"
+
+# Get all CSV files in the folder
+csv_files = [f for f in os.listdir(folder_path) if f.endswith(".csv")]
+
+# List to store each file's DataFrame
+df_list = []
+
+# Loop through and read each file
+for file in csv_files:
+    file_path = os.path.join(folder_path, file)
+    df = pd.read_csv(file_path)
+    df_list.append(df)
+
+# Combine all dataframes
+combined_df = pd.concat(df_list, ignore_index=True)
+
+# Save to new CSV
+output_file = os.path.join(folder_path, "all_rent_data.csv")
+combined_df.to_csv(output_file, index=False)
+
+print(f"Combined {len(csv_files)} files into: {output_file}")
+
+# Load the new combined file
+df = pd.read_csv(output_file)
+
+# Show shape
+print("\nSHAPE of dataset:", df.shape)
+
+# Show columns
+print("\nCOLUMNS:")
+print(df.columns.tolist())
+
+# Show index
+print("\nINDEX:")
+print(df.index)
+
+# Numeric stats
+print("\nDESCRIPTIVE STATISTICS (numerical):")
+print(df.describe())
+
+# Non-numeric stats
+print("\nDESCRIPTIVE STATISTICS (non-numerical):")
+print(df.describe(include=['object']))
+
+# Preview first 5 rows
+print("\nFIRST 5 ROWS:")
+print(df.head())
 
   </details>
 
-## 🐍 Python Code (Data Cleaning)
-
-```python
-import pandas as pd
-
-# Load data
-df = pd.read_csv("idealista_raw.csv")
-
-# Clean price and size
-df["price"] = df["price"].str.replace("€", "").str.replace(",", "").astype(float)
-df["size"] = df["size"].str.replace("m²", "").astype(float)
-
-# Calculate €/m²
-df["price_per_m2"] = df["price"] / df["size"]
-
-# Filter only furnished listings under €2000
-df_filtered = df[(df["furnished"] == True) & (df["price"] < 2000)]
-
-# Save for SQL analysis
-df_filtered.to_csv("cleaned_rentals.csv", index=False)
