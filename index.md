@@ -102,6 +102,8 @@ print(df.describe(include=['object']))
 print("\nFIRST 5 ROWS:")
 print(df.head())
 
+
+
 <details>
   <summary>Step 2 – Cleaning up columns</summary
 
