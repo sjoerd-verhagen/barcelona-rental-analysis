@@ -3,6 +3,7 @@
 **Author:** Sjoerd Verhagen  
 **Tools used:** SQL • Python • Tableau  
 **Live Tableau dashboard:** [View Here](https://public.tableau.com/views/YOUR-DASHBOARD-LINK)
+**GOAL**
 
 ---
 
@@ -38,7 +39,7 @@ As I want to have a place where friends can stay over:
 
 ---
 
-## Chapter 1 – Data Cleaning
+## Chapter 1 – Cleaning the Raw Data
 
 <details>
   <summary>Step 1 – Combining the raw files</summary
