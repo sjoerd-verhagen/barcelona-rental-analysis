@@ -7,6 +7,10 @@
 
 ---
 
+## TL;DR 
+
+---
+
 ## 🎯 Project Goal
 
 My girlfriend and I will move to Barcelona in September 2025. To use my new skills in python, SQL and Tableau I thought of a project that is something I really want to figure out and also that will display what I learnt in my courses. 
