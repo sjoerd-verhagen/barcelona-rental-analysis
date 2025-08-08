@@ -417,7 +417,7 @@ The average rent in Horta Guinardo and Cuitat Vella is the lowest, followed by S
 <details>
   <summary>Step 2.5 – How much more do two-bedroom flats cost compared to one-bedroom flats? (per district) </summary
                                                                                                               
-  Explaning what you are doing with sql would be a good way of going about it I think...                                                                                                                                                                                                                 
+This query compares average rents for 1- and 2-bedroom apartments across Barcelona districts, excluding Sant Andreu and Nou Barris. It uses a CTE and a self-join to calculate both the absolute and percentage rent difference between the two apartment types. The output reveals how much more expensive 2-bedrooms are per district, offering clear insight into local rental pricing dynamics.                                                                                                                    
   ```sql
 
 WITH rent_by_bedrooms AS (
@@ -461,7 +461,8 @@ You see here that the lowest change is in Les Corts, followed by Sants-Montjuïc
 <details>
   <summary>Step 2.6 – Lets dive a bit deeper (per district) </summary
 
-Introduct the SQL here
+This query compares average rents for 1- and 2-bedroom apartments per district, excluding two districts. It calculates both the absolute and percentage price difference using a self-join on a grouped subquery. The result highlights how much more expensive 2-bedroom apartments are, giving further insight into rental pricing by district.
+
 ```sql
 WITH rent_counts AS (
     SELECT 
