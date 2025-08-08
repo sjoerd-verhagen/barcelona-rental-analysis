@@ -510,4 +510,12 @@ ORDER BY pct_diff ASC;
 As we see here is that indeed Horta Guinardo has the lowest number of listings, followed by Les Corts. Interesting, Cuitat Vella had the most listings. Here it seems that for bigger apartments with 2 bedrooms **Sants-Montjuïc** seems to be a good fit, as it has a good number of listings, a low average rent (top3), for a 1 bedroom apartment, and a low average rent for a 2 bedroom apartment (3rd place).
 </details>
 
+## What I learned (and Challenges I faced)
+
+<details>
+  <summary>Step 2.1 – bladibla</summary
+
+- the Idealista site is very well guarded for scraping, so I really had to puzzle with the scraper before I found a way of doing it and it not taking hours to do so. (it still did, as I had to make it into batches of 3 pages (where there were 60+ pages to scrape)
+- The Adresses where written in such a way (I think because of the catalan) that it was not very clearly picked up by the GeoData. When I cut out the subdistrict it did work out, this meant I had to change some coordinates by hand
+- idealista pages are not always completely filled out, which made the number of bedrooms section get mixed with the #floor section. This meant I first had loads of building which 8 bedrooms, which didn't seem feasable.
 
