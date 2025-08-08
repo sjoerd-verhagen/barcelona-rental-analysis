@@ -12,22 +12,18 @@ My girlfriend and I will move to Barcelona in September 2025. To use my new skil
 
 To prepare for our move, I analysed the rental market using data from Idealista, the city’s most popular housing platform. With a student budget, I focused on furnished flats under €2,000 a month to see what is realistic and where to start our search. Through the analysis i hope to narrow down the choices of neighbourhoods, to get a feel for the city and to see whether there are certain districts better suited for our choice.
 
-I aimed to answer:
-- Which districts give us the best value for money (€/m²)?
-- Which districts have the largest rental supply? 
-- What are the average sizes and rents by district?
-
 
 ---
 
 ## 🔍 Key Questions
 
-In order to dig a little deeper into the real interesting questions:
-As I want to have a place where friends can stay over  
-- How much more do two-bedroom flats cost compared to one-bedroom flats?
+I aimed to answer:
+- Which districts give us the best value for money (€/m²)?
+- Which districts have the largest rental supply? 
+- What are the average sizes and rents by district?
 
-As I want a place that also has have some quiet next to the busy city life 
-- Which districts just outside the centre (like Gràcia, Poble-Sec, Poblenou, Sants, and Sant Antoni) offer good balance between price, space?
+As I want to have a place where friends can stay over:
+- How much more do two-bedroom flats cost compared to one-bedroom flats?
 
 
 ---
@@ -36,9 +32,9 @@ As I want a place that also has have some quiet next to the busy city life
 
 1. Open Web Scraper for collecting rental data
 2. Python for cleaning and preparing the data
-3.  Open Geo Code for mapping coordinates
-4.  SQL for queries and aggregations
-5. Tableau for creating clear visual insights
+3.  Open Geo Code for mapping coordinates (python supported)
+4.  SQL for queries and data analysis
+5. Tableau for creating clear visual insights and dashboard
 
 ---
 
@@ -46,6 +42,7 @@ As I want a place that also has have some quiet next to the busy city life
 
 <details>
   <summary>Step 1 – Combining the raw files</summary
+
 
 For step 1, I used Python to combine all individual CSV files into one dataset. I loaded each file from the project folder, appended them to a list of DataFrames, and then concatenated everything into a single DataFrame. I saved this as a new CSV file and quickly explored its structure to check that everything had loaded correctly.
 
@@ -101,10 +98,12 @@ print(df.head())
 
 </details> <details> <summary>Step 2 – Cleaning up key columns</summary>
 
+
 In this step, I cleaned the price, size, and price-per-m² columns. The raw data included symbols like “€” and “m²”. I stripped those out so the values are now usable as proper numbers.
 - Converted price to price_clean, containing just the amount as a float.
 - Did the same for price_per_m2 and size, which now have clean numerical values in new columns.
 - Finally, I checked for missing values in those cleaned columns.
+
 
 
 ```python
@@ -143,7 +142,9 @@ print("size_clean:          ", df['size_clean'].notna().sum())
 </details> <details>
   <summary>Step 3 – Further cleaning</summary
 
-For step 3, ...
+
+For step 3, I further cleaned the columns...
+
 
 ```python
 import pandas as pd
@@ -222,7 +223,7 @@ print(df['bedrooms_clean'].describe())
 
 </details> <details> <summary> Step 4 – GeoData</summary>
 
-In this step,
+In this step i added the latitude and longitude for every apartment, through GeoData I can automate this process. By fillin gin the API and adding everything I made into geodata that I could later load into Tableau to make a visual representation of the barcelona map.
 
 ```python
 import pandas as pd
