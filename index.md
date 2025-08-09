@@ -308,7 +308,8 @@ In this table:
 
 _Horta Guinardó_ and _Les Corts_ give the best average price per m2, with a similar st dev compared to the other neighbourhoods. The average price is quie a bit lower then the other neighbourhoods, with a similar stdev. 
 
-![Graph showing value for money by district](barcelona-rental-analysis/graph1.png)
+<img src="barcelona-rental-analysis/graph1.png" alt="Value for money by district" style="max-width: 100%; height: auto;">
+
 </details>
 
 <details>
