@@ -33,6 +33,7 @@ With the data in hand, I set out to answer some practical questions (the kind th
 - Which districts offer the best value for money (€/m²)?
 - Which districts have the largest rental supply?
 - What are the average sizes and rents by district?
+
 And because we want space for friends to visit:
 - How much extra does a two-bedroom flat cost compared to a one-bedroom?
 
@@ -152,7 +153,7 @@ print("size_clean:          ", df['size_clean'].notna().sum())
   <summary>Step 3 – Further cleaning</summary
 
 
-For step 3, I further cleaned the columns...
+For step 3, I extracted and cleaned the number of bedrooms from the listing text, creating a numeric column for analysis.
 
 
 ```python
@@ -166,69 +167,18 @@ df = pd.read_csv(file_path)
 df['bedrooms_clean'] = df['bedrooms'].str.extract(r'(\d+)').astype(float)
 
 # Preview cleaned results
-print("\n🛏️ Bedrooms cleaned preview:")
+print("Bedrooms cleaned preview:")
 print(df[['bedrooms', 'bedrooms_clean']].head(10))
 
 # Show descriptive statistics
-print("\n📊 Descriptive statistics for bedrooms:")
+print("Descriptive statistics for bedrooms:")
 print(df['bedrooms_clean'].describe())
 
 # Save the updated file
 output_path = "/Users/sjoerdv/Documents/PERSOONLIJK/Portfolio/Data 27 jul/all_rent_data_cleaned_v2.csv"
 df.to_csv(output_path, index=False)
 
-print(f"\n✅ File saved with cleaned bedrooms column:\n{output_path}")
-
-
-——————
-Code Block 3
-
-
-import numpy as np
-
-# Step 1: Extract numeric bedrooms from 'bedrooms' column
-df['bedrooms_clean'] = df['bedrooms'].str.extract(r'(\d+)').astype(float)
-
-# Step 2: Fill in 0 where listing-link indicates a Studio
-is_studio = df['listing-link'].str.contains(r'\b[Ss]tudio\b', na=False)
-df.loc[is_studio, 'bedrooms_clean'] = 0
-
-# Step 3: Preview the result
-print("\n🛏️ Cleaned bedrooms (including Studio):")
-print(df[['listing-link', 'bedrooms', 'bedrooms_clean']].head(10))
-
-# Step 4: Show stats
-print("\n📊 Descriptive statistics for bedrooms_clean:")
-print(df['bedrooms_clean'].describe())
-
-# Step 5: Count missing values
-print("\n❌ Missing values in bedrooms_clean:", df['bedrooms_clean'].isna().sum())
-
-
-
-———————
-
-
-# Fix remaining missing bedrooms based on keywords like 'Studio', 'Loft', etc.
-studio_keywords = r'(Studio|Loft|Mini|Open-plan)'
-studio_mask = df['bedrooms_clean'].isna() & df['listing-link'].str.contains(studio_keywords, case=False, na=False)
-df.loc[studio_mask, 'bedrooms_clean'] = 0
-
-# As fallback, fill any remaining NaNs with 0
-df['bedrooms_clean'] = df['bedrooms_clean'].fillna(0)
-
-# Ensure the column is numeric
-df['bedrooms_clean'] = df['bedrooms_clean'].astype(int)
-
-# Check for remaining missing values
-missing = df['bedrooms_clean'].isna().sum()
-print(f"❌ Missing values in bedrooms_clean: {missing}")
-
-# Show descriptive statistics
-print("\n📊 Descriptive statistics for bedrooms_clean:")
-print(df['bedrooms_clean'].describe())
-```
-</details> 
+print(f"File saved with cleaned bedrooms column: {output_path}")
 
 </details> <details> <summary> Step 4 – GeoData</summary>
 
@@ -290,7 +240,7 @@ print(f"\n✅ Geocoded file saved to: {output_path}")
 <details>
   <summary>Step 2.1 – bladibla</summary
 
-For step 1,
+In this step, I calculated the number of listings, average, minimum, maximum, and price variation for rentals in each district, then ranked districts by average price.
 
 ```sql
 SELECT 
@@ -305,7 +255,7 @@ GROUP BY district
 ORDER BY avg_price DESC;
 ```
 
-Let us take a look at the table
+Let us take a look at the table:
 
 | "district"            | "number_of_listings" | "avg_price" | "min_price" | "max_price" | "stddev_price" |
 |-----------------------|----------------------|-------------|-------------|-------------|----------------|
@@ -320,13 +270,14 @@ Let us take a look at the table
 | "Ciutat Vella"        | 846                  | 1339.66     | 700         | 2000        | 303.65         |
 | "Horta Guinardó"      | 88                   | 1299.02     | 750         | 1995        | 284.45         |
 
-Just to get an overview, I think as Nou Barris and Sant Andreu only have this many listings, I will exclude them as they are a very small sample size. Statistically with explorationary studies you take 30, and I will take that too as a benchmark. Lets focus on the other neighbourhoods with bigger sample sizes.
+I observed that _Nou Barris_ and _Sant Andreu_ have very few listings compared to other districts. Given that exploratory analysis typically requires a minimum sample size of around 30 to be statistically meaningful, I will exclude these two districts in later steps. 
+
 </details>
 
 <details>
   <summary>Step 2.2 – Which districts give the best value for money (€/m²)? </summary
 
-To answer this question lets take a look at the sqlquery...
+In this step, I calculated how rental prices per square metre vary across districts (excluding _Sant Andreu_ and _Nou Barris_), by counting listings and finding the average, minimum, maximum, and standard deviation of price per m². Then I ordered the districts from cheapest to most expensive per square metre.
 
 ```sql
 SELECT 
@@ -344,20 +295,19 @@ ORDER BY avg_price_per_m2 ASC;
 
 In this table:
 
-| district            | number_of_listings | avg_size_m2 | avg_rent | min_rent | max_rent | rent_stddev |
-|---------------------|--------------------|-------------|----------|----------|----------|-------------|
-| Horta Guinardó      |                 88 |       68.75 |  1299.02 |      750 |     1995 |      284.45 |
-| Ciutat Vella        |                846 |       54.15 |  1339.66 |      700 |     2000 |      303.65 |
-| Sants-Montjuïc      |                200 |       59.59 |  1441.33 |      945 |     2000 |      244.22 |
-| Nou Barris          |                 17 |       80.76 |  1479.12 |      850 |     2000 |      344.61 |
-| Sarrià-Sant Gervasi |                200 |       62.61 |   1523.5 |      865 |     2000 |      244.91 |
-| Gràcia              |                199 |        63.9 |  1543.67 |      800 |     2000 |      306.06 |
-| Les Corts           |                 66 |       73.26 |  1591.97 |      850 |     2000 |      295.73 |
-| Sant Andreu         |                 34 |       69.18 |  1596.03 |      990 |     2000 |      357.77 |
-| Eixample            |                434 |       65.59 |  1611.85 |      750 |     2000 |      293.27 |
-| Sant Martí          |                134 |       66.08 |  1627.01 |      650 |     2000 |      320.09 |
+| district            | number_of_listings | avg_price_per_m2 | min_price_per_m2 | max_price_per_m2 | stddev_price_per_m2 |
+|---------------------|--------------------|------------------|------------------|------------------|---------------------|
+| Horta Guinardó      |                 88 |            20.19 |             12.5 |            35.83 |                5.68 |
+| Les Corts           |                 66 |            22.92 |            13.33 |               50 |                6.06 |
+| Gràcia              |                199 |            25.04 |            13.33 |               40 |                5.28 |
+| Sants-Montjuïc      |                200 |            25.55 |            14.09 |               54 |                6.07 |
+| Sant Martí          |                134 |            25.84 |             7.14 |            58.33 |                6.56 |
+| Sarrià-Sant Gervasi |                200 |            26.06 |             11.5 |            56.67 |                7.05 |
+| Eixample            |                434 |            26.15 |            10.83 |            61.67 |                6.84 |
+| Ciutat Vella        |                846 |            27.09 |            11.24 |               95 |                8.64 |
 
-**Horta Guinardó** and **Les Corts** give the best average price per m2, with a similar st dev compared to the other neighbourhoods. The average price is quie a bit lower then the other neighbourhoods, with a similar stdev. 
+_Horta Guinardó_ and _Les Corts_ give the best average price per m2, with a similar st dev compared to the other neighbourhoods. The average price is quie a bit lower then the other neighbourhoods, with a similar stdev. 
+
 </details>
 
 <details>
