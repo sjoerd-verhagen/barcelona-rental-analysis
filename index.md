@@ -3,33 +3,38 @@
 **Author:** Sjoerd Verhagen  
 **Tools used:** SQL • Python • Tableau  
 **Live Tableau dashboard:** [View Here](https://public.tableau.com/views/YOUR-DASHBOARD-LINK)
-**GOAL**
+**GOAL:** Practising my new data skills and building a portfolio to show it!
 
 ---
 
 ## TL;DR 
 
+Scraped 2,218 Barcelona rental listings from Idealista, cleaned and analysed them with Python + SQL, mapped them with Open Geo Code, and built an interactive Tableau dashboard.
+
+**Goal:**
+Find the best-value districts, see where supply is highest, compare average sizes and rents, and figure out the price jump from one- to two-bedroom flats.
+
 ---
 
-## 🎯 Project Goal
+## 🎯 Background & Project
 
-My girlfriend and I will move to Barcelona in September 2025. To use my new skills in python, SQL and Tableau I thought of a project that is something I really want to figure out and also that will display what I learnt in my courses. 
+My girlfriend and I are moving to Barcelona in September 2025. I saw an opportunity to make our house hunt double as a data project, using my Python, SQL and Tableau skills to explore the city’s rental market.
 
-To prepare for our move, I analysed the rental market using data from Idealista, the city’s most popular housing platform. With a student budget, I focused on furnished flats under €2,000 a month to see what is realistic and where to start our search. Through the analysis i hope to narrow down the choices of neighbourhoods, to get a feel for the city and to see whether there are certain districts better suited for our choice.
+I scraped 2,218 listings from Idealista, Barcelona’s most popular housing platform, focusing on furnished flats under €2,000 a month — realistic for our starter budget and ideal since we’re not bringing furniture from the UK or the Netherlands. The dataset included price, size, location and number of bedrooms.
 
+The goal? To pinpoint which neighbourhoods fit our needs, get a feel for the city, and see which areas offer the best options for our move.
 
 ---
 
 ## 🔍 Key Questions
 
-I aimed to answer:
-- Which districts give us the best value for money (€/m²)?
-- Which districts have the largest rental supply? 
+With the data in hand, I set out to answer some practical questions (the kind that actually matter when you’re moving somewhere new):
+
+- Which districts offer the best value for money (€/m²)?
+- Which districts have the largest rental supply?
 - What are the average sizes and rents by district?
-
-As I want to have a place where friends can stay over:
-- How much more do two-bedroom flats cost compared to one-bedroom flats?
-
+And because we want space for friends to visit:
+- How much extra does a two-bedroom flat cost compared to a one-bedroom?
 
 ---
 
@@ -48,8 +53,7 @@ As I want to have a place where friends can stay over:
 <details>
   <summary>Step 1 – Combining the raw files</summary
 
-
-For step 1, I used Python to combine all individual CSV files into one dataset. I loaded each file from the project folder, appended them to a list of DataFrames, and then concatenated everything into a single DataFrame. I saved this as a new CSV file and quickly explored its structure to check that everything had loaded correctly.
+For the first step, I used Python to combine all individual CSV files into one dataset. I loaded each file from the project folder, appended them to a list of DataFrames, and then concatenated everything into a single DataFrame. I saved this as a new CSV file and quickly explored its structure to check that everything had loaded correctly.
 
 ```python
 import os
