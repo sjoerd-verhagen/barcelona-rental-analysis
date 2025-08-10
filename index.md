@@ -309,7 +309,7 @@ ORDER BY avg_price_per_m2 ASC;
 
 _Horta Guinardó_ and _Les Corts_ offer the lowest average price per m², whilst maintaining a similar price variation to other districts. With noticeably lower averages and no greater volatility, these areas show the best value for money.
 
-<img src="https://github.com/sjoerd-verhagen/barcelona-rental-analysis/blob/main/value-for-money2" alt="Which districts give the best value for money" width="600">
+<img src="https://github.com/sjoerd-verhagen/barcelona-rental-analysis/blob/main/value-for-money2" alt="Which districts give the best value for money" width="800">
 
 
 </details>
@@ -378,7 +378,7 @@ ORDER BY avg_rent ASC;
 | Eixample            |                434 |       65.59 |  1611.85 |      750 |     2000 |      293.27 |
 | Sant Martí          |                134 |       66.08 |  1627.01 |      650 |     2000 |      320.09 |
 
-<img src="https://github.com/sjoerd-verhagen/barcelona-rental-analysis/blob/main/rent-vs-size" alt="Average Rent vs Apartment Size by District" width="600">
+<img src="https://github.com/sjoerd-verhagen/barcelona-rental-analysis/blob/main/rent-vs-size" alt="Average Rent vs Apartment Size by District" width="800">
 
 
 The lowest average rents are found in _Horta Guinardó_ and _Ciutat Vella_, followed by _Sants-Montjuïc_. Notably, _Horta Guinardó_ also ranks second in average apartment size, offering a great balance between space and price.
