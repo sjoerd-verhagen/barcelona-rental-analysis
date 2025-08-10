@@ -240,7 +240,7 @@ print(f"\n✅ Geocoded file saved to: {output_path}")
 ## Part 2 – Data Analysis (SQL)
 
 <details>
-  <summary>Step 2.1 Descriptive Statistics – </summary
+  <summary>Step 2.1 - Descriptive Statistics </summary
 
 In this step, I calculated the number of listings, average, minimum, maximum, and price variation for rentals in each district, then ranked districts by average price.
 
