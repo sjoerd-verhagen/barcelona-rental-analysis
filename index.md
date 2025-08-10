@@ -378,6 +378,9 @@ ORDER BY avg_rent ASC;
 | Eixample            |                434 |       65.59 |  1611.85 |      750 |     2000 |      293.27 |
 | Sant Martí          |                134 |       66.08 |  1627.01 |      650 |     2000 |      320.09 |
 
+<img src="https://github.com/sjoerd-verhagen/barcelona-rental-analysis/blob/main/rent-vs-size" alt="Average Rent vs Apartment Size by District" width="600">
+
+
 The lowest average rents are found in _Horta Guinardó_ and _Ciutat Vella_, followed by _Sants-Montjuïc_. Notably, _Horta Guinardó_ also ranks second in average apartment size, offering a great balance between space and price.
 </details>
 
