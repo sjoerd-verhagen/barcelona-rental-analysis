@@ -380,56 +380,10 @@ ORDER BY avg_rent ASC;
 
 <img src="https://github.com/sjoerd-verhagen/barcelona-rental-analysis/blob/main/rent-vs-size" alt="Average Rent vs Apartment Size by District" width="800">
 
+_Horta Guinardó_ offers the best deal, combining the lowest average rent with the second-largest apartment sizes. In contrast, _Ciutat Vella_ also has low rents but much smaller average apartment sizes, making _Horta Guinardó_ the better value for space and price.
 
-The lowest average rents are found in _Horta Guinardó_ and _Ciutat Vella_, followed by _Sants-Montjuïc_. Notably, _Horta Guinardó_ also ranks second in average apartment size, offering a great balance between space and price.
-</details>
-
-<details>
-  <summary>Step 2.5 – How much more do two-bedroom flats cost compared to one-bedroom flats? (per district) </summary
-                                                                                                              
-This query compares average rents for 1- and 2-bedroom apartments across Barcelona districts, excluding Sant Andreu and Nou Barris. It uses a CTE and a self-join to calculate both the absolute and percentage rent difference between the two apartment types. The output reveals how much more expensive 2-bedrooms are per district, offering clear insight into local rental pricing dynamics.                                                                                                                    
-  ```sql
-
-WITH rent_by_bedrooms AS (
-  SELECT 
-    district,
-    bedrooms_cleaned,
-    AVG(price_clean) AS avg_rent
-  FROM table_v4
-  WHERE bedrooms_cleaned IN (1, 2)
-    AND district NOT IN ('Sant Andreu', 'Nou Barris')
-  GROUP BY district, bedrooms_cleaned
-)
-SELECT 
-  r1.district,
-  r2.avg_rent - r1.avg_rent AS price_diff_2b_vs_1b,
-  ROUND(( (r2.avg_rent - r1.avg_rent) / r1.avg_rent ) * 100, 1) AS pct_diff_2b_vs_1b,
-  r1.avg_rent AS avg_rent_1b,
-  r2.avg_rent AS avg_rent_2b
-FROM rent_by_bedrooms r1
-JOIN rent_by_bedrooms r2
-  ON r1.district = r2.district
-WHERE r1.bedrooms_cleaned = 1 
-  AND r2.bedrooms_cleaned = 2
-ORDER BY price_diff_2b_vs_1b DESC;
-```
-
-| district            | price_diff_2b_vs_1b | pct_diff_2b_vs_1b | avg_rent_1b | avg_rent_2b |
-|---------------------|---------------------|-------------------|-------------|-------------|
-| Les Corts           |               62.42 |             4.11% |      1519.1 |     1581.52 |
-| Sants-Montjuïc      |              104.96 |             7.63% |     1375.14 |     1480.11 |
-| Sarrià-Sant Gervasi |              132.93 |             9.19% |     1447.13 |     1580.06 |
-| Eixample            |              176.34 |            11.73% |     1502.96 |      1679.3 |
-| Gràcia              |              206.82 |            14.68% |     1409.24 |     1616.06 |
-| Sant Martí          |              228.57 |            15.35% |        1489 |     1717.57 |
-| Ciutat Vella        |              239.47 |             19.4% |     1234.53 |        1474 |
-| Horta Guinardó      |              262.49 |            23.93% |     1096.87 |     1359.35 |
-
-You see here that the lowest change is in Les Corts, followed by Sants-Montjuïc. Interestingly, in Sants-Montjuïc has the single lowest change for a second bedroom, and it has the top 3 lowest average rent costs as well. Where for Cuitat Vella en Horta Guinardo, the difference between one and two bedrooms was the biggest, even though they were the ones with the lowest rent. Could it be that it is skewed because there are way more 1 bedroom listings?
-</details>
-
-<details>
-  <summary>Step 2.6 – Lets dive a bit deeper (per district) </summary
+</details> <details>
+  <summary>Step 2.5 – Lets dive a bit deeper (per district) </summary
 
 This query compares average rents for 1- and 2-bedroom apartments per district, excluding two districts. It calculates both the absolute and percentage price difference using a self-join on a grouped subquery. The result highlights how much more expensive 2-bedroom apartments are, giving further insight into rental pricing by district.
 
