@@ -483,7 +483,6 @@ Given my goal of finding a furnished flat on a student budget with a second bedr
 <details>
   <summary>What I learned</summary
 
-- the Idealista site is very well guarded for scraping, so I really had to puzzle with the scraper before I found a way of doing it and it not taking hours to do so. (it still did, as I had to make it into batches of 3 pages (where there were 60+ pages to scrape)
-- The Adresses where written in such a way (I think because of the catalan) that it was not very clearly picked up by the GeoData. When I cut out the subdistrict it did work out, this meant I had to change some coordinates by hand
-- idealista pages are not always completely filled out, which made the number of bedrooms section get mixed with the #floor section. This meant I first had loads of building which 8 bedrooms, which didn't seem feasable.
+- Scraping data from Idealista was not the easiest, the website is well protected and the listings weren’t always consistent. I had to get creative by breaking the scraping into smaller batches and fixing some messy address data afterwards. One notable issue was that floor numbers sometimes got mixed up with bedroom counts, causing some apartments to show as having eight bedrooms. By regularly checking descriptive stats, I caught these errors and made sure the data made sense. This taught me the importance of continuous data validation.
+- I also ended up scraping more variables than I needed. Reflecting on this, I realise that taking more time upfront to clearly define the research questions and relevant variables can save effort later. Next time, I would focus more on identifying what data is truly necessary before diving deeper.
 
