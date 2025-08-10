@@ -49,10 +49,10 @@ And because we want space for friends to visit:
 
 ---
 
-## Chapter 1 – Cleaning the Raw Data
+## Part 1 – Cleaning the Raw Data
 
 <details>
-  <summary>Step 1 – Combining the raw files</summary
+  <summary>Step 1.1 – Combining the raw files</summary
 
 
 For the first step, I used Python to combine all individual CSV files into one dataset. I loaded each file from the project folder, appended them to a list of DataFrames, and then concatenated everything into a single DataFrame. I saved this as a new CSV file and quickly explored its structure to check that everything had loaded correctly.
@@ -107,7 +107,7 @@ print("\nFIRST 5 ROWS:")
 print(df.head())
 ```
 
-</details> <details> <summary>Step 2 – Cleaning up key columns</summary>
+</details> <details> <summary>Step 1.2 – Cleaning up key columns</summary>
 
 
 In this step, I cleaned the price, size, and price-per-m² columns. The raw data included symbols like “€” and “m²”. I stripped those out so the values are now usable as proper numbers.
@@ -151,10 +151,10 @@ print("size_clean:          ", df['size_clean'].notna().sum())
 ```
 
 </details> <details>
-  <summary>Step 3 – Further cleaning</summary
+  <summary>Step 1.3 – Further cleaning</summary
 
 
-For step 3, I extracted and cleaned the number of bedrooms from the listing text, creating a numeric column for analysis.
+For step 1.3, I extracted and cleaned the number of bedrooms from the listing text, creating a numeric column for analysis.
 
 
 ```python
@@ -182,7 +182,7 @@ df.to_csv(output_path, index=False)
 print(f"File saved with cleaned bedrooms column: {output_path}")
 ```
 
-</details> <details> <summary> Step 4 – GeoData</summary>
+</details> <details> <summary> Step 1.4 – GeoData</summary>
 
 In this step i added the latitude and longitude for every apartment, through GeoData I can automate this process. By fillin gin the API and adding everything I made into geodata that I could later load into Tableau to make a visual representation of the barcelona map.
 
@@ -237,10 +237,10 @@ print(f"\n✅ Geocoded file saved to: {output_path}")
 </details>
 
 
-## Chapter 2 – Data Analysis (SQL)
+## Part 2 – Data Analysis (SQL)
 
 <details>
-  <summary>Step 2.1 – bladibla</summary
+  <summary>Step 2.1 Descriptive Statistics – </summary
 
 In this step, I calculated the number of listings, average, minimum, maximum, and price variation for rentals in each district, then ranked districts by average price.
 
@@ -295,7 +295,6 @@ GROUP BY district
 ORDER BY avg_price_per_m2 ASC; 
 ```
 
-In this table:
 
 | district            | number_of_listings | avg_price_per_m2 | min_price_per_m2 | max_price_per_m2 | stddev_price_per_m2 |
 |---------------------|--------------------|------------------|------------------|------------------|---------------------|
@@ -308,16 +307,20 @@ In this table:
 | Eixample            |                434 |            26.15 |            10.83 |            61.67 |                6.84 |
 | Ciutat Vella        |                846 |            27.09 |            11.24 |               95 |                8.64 |
 
-_Horta Guinardó_ and _Les Corts_ give the best average price per m2, with a similar st dev compared to the other neighbourhoods. The average price is quie a bit lower then the other neighbourhoods, with a similar stdev. 
+_Horta Guinardó_ and _Les Corts_ offer the lowest average price per m², whilst maintaining a similar price variation to other districts. With noticeably lower averages and no greater volatility, these areas show the best value for money.
 
 ![Which districts give the best value for money](https://github.com/sjoerd-verhagen/barcelona-rental-analysis/blob/main/value-for-money)
+
+<img src="https://github.com/sjoerd-verhagen/barcelona-rental-analysis/blob/main/value-for-money" alt="Which districts give the best value for money" width="600">
+
 
 </details>
 
 <details>
   <summary>Step 2.3 – Where is the largest rental supply? (with what variance?) (€/m²)? </summary
 
-Here introducing the SQL
+To understand where renters have the most choice and how consistent prices are, I calculated the number of listings per district along with the variance and standard deviation in rental prices. This highlights both the scale of the market in each area and how stable (or volatile) pricing tends to be.
+
 
 ```sql
 SELECT 
@@ -342,11 +345,14 @@ ORDER BY price_stddev DESC;
 | Horta Guinardó      |                 88 |       80911.56 |        284.4 |
 | Les Corts           |                 66 |       87456.15 |        295.7 |
 
-The biggest rental supply is in **Ciuttat Vella**, Followed by **Exiample**. We see here that the standard deviation of the price is also the lowest in **Sarrià-Sant Gervasi** and **Sants-Montjuï**, which have the third and forth most listings available. Even thought they had greater average pricesthen **Les Corts** and **Guinardo**. The biggest variance is in **Sant Marti**. 
+The largest rental supply is found in _Ciutat Vella_, followed by _Eixample_. Among districts with substantial listings, _Sarrià-Sant Gervasi_ and _Sants-Montjuïc_ show the lowest price variability, reflected in their relatively low standard deviations, despite having higher average prices than _Les Corts_ and _Horta Guinardó_. The greatest price variance occurs in Sant Martí, indicating more fluctuation in rental costs there.
+
 </details>
 
 <details>
   <summary>Step 2.4 – What are the average sizes and rents by district? </summary
+
+To get a clearer picture of what each district offers, I calculated the average apartment size and rental price, along with the minimum, maximum, and standard deviation of rents. This helps understand not only the typical flat but also the range and variability of rental options available across Barcelona’s districts.  
 
 ```sql
 SELECT 
@@ -374,7 +380,7 @@ ORDER BY avg_rent ASC;
 | Eixample            |                434 |       65.59 |  1611.85 |      750 |     2000 |      293.27 |
 | Sant Martí          |                134 |       66.08 |  1627.01 |      650 |     2000 |      320.09 |
 
-The average rent in Horta Guinardo and Cuitat Vella is the lowest, followed by Sants-Montjuïc. If you compare that to avg size, you see that Horta Guinardo also is the district with the second highest average size. 
+The lowest average rents are found in _Horta Guinardó_ and _Ciutat Vella_, followed by _Sants-Montjuïc_. Notably, _Horta Guinardó_ also ranks second in average apartment size, offering a great balance between space and price.
 </details>
 
 <details>
@@ -471,7 +477,7 @@ As we see here is that indeed Horta Guinardo has the lowest number of listings, 
 ## What I learned (and Challenges I faced)
 
 <details>
-  <summary>Step 2.1 – bladibla</summary
+  <summary>What I learned</summary
 
 - the Idealista site is very well guarded for scraping, so I really had to puzzle with the scraper before I found a way of doing it and it not taking hours to do so. (it still did, as I had to make it into batches of 3 pages (where there were 60+ pages to scrape)
 - The Adresses where written in such a way (I think because of the catalan) that it was not very clearly picked up by the GeoData. When I cut out the subdistrict it did work out, this meant I had to change some coordinates by hand
