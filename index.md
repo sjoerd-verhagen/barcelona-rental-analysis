@@ -383,9 +383,9 @@ ORDER BY avg_rent ASC;
 _Horta Guinardó_ offers the best deal, combining the lowest average rent with the second-largest apartment sizes. In contrast, _Ciutat Vella_ also has low rents but much smaller average apartment sizes, making _Horta Guinardó_ the better value for space and price.
 
 </details> <details>
-  <summary>Step 2.5 – Lets dive a bit deeper (per district) </summary
+  <summary>Step 2.5 – Comparing 1- and 2-bedroom apartments </summary
 
-This query compares average rents for 1- and 2-bedroom apartments per district, excluding two districts. It calculates both the absolute and percentage price difference using a self-join on a grouped subquery. The result highlights how much more expensive 2-bedroom apartments are, giving further insight into rental pricing by district.
+This query looks at how much one- and two-bedroom flats cost in different districts, leaving out Sant Andreu and Nou Barris. It shows the average rents for both sizes and calculates how much more expensive two-bedrooms are compared to one-bedrooms, both in amount and percentage.
 
 ```sql
 WITH rent_counts AS (
@@ -426,7 +426,10 @@ ORDER BY pct_diff ASC;
 | Ciutat Vella        |           371 |           286 |     1234.53 |        1474 |     239.47 |     19.4 |
 | Horta Guinardó      |            15 |            31 |     1096.87 |     1359.35 |     262.48 |    23.93 |
 
-As we see here is that indeed Horta Guinardo has the lowest number of listings, followed by Les Corts. Interesting, Cuitat Vella had the most listings. Here it seems that for bigger apartments with 2 bedrooms **Sants-Montjuïc** seems to be a good fit, as it has a good number of listings, a low average rent (top3), for a 1 bedroom apartment, and a low average rent for a 2 bedroom apartment (3rd place).
+<img src="https://github.com/sjoerd-verhagen/barcelona-rental-analysis/blob/main/rents-1b2b.png" alt="Which districts give the best value for money" width="800">
+
+The results show that _Horta Guinardó_ and _Les Corts_ has the fewest listings, while _Ciutat Vella_ has the largest supply. Notably, _Sants-Montjuïc_ stands out as a balanced option for larger flats, offering a strong number of listings with relatively low rents for both one- and two-bedroom apartments.
+
 </details>
 
 ## What I learned (and Challenges I faced)
