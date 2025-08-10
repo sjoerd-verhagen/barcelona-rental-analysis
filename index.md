@@ -57,9 +57,10 @@ And because we want space for friends to visit:
 
 1. Open Web Scraper for collecting rental data
 2. Python for cleaning and preparing the data
-3.  Open Geo Code for mapping coordinates (python supported)
-4.  SQL for queries and data analysis
-5. Tableau for creating clear visual insights and dashboard
+3. Google Sheets – quick quality checks on the scraped data
+4.  Open Geo Code for mapping coordinates (python supported)
+5.  SQL for queries and data analysis
+6. Tableau for creating clear visual insights and dashboard
 
 ---
 
