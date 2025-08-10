@@ -3,13 +3,13 @@
 **Author:** Sjoerd Verhagen  
 **Tools used:** SQL • Python • Tableau  
 **Live Tableau dashboard:** [View Here](https://public.tableau.com/views/YOUR-DASHBOARD-LINK)
-**GOAL:** Practising my new data skills and building a portfolio to show it!
+
 
 ---
 
 ## TL;DR 
 
-Scraped 2,218 Barcelona rental listings from Idealista, cleaned and analysed them with Python + SQL, mapped them with Open Geo Code, and built an interactive Tableau dashboard.
+Scraped 2,218 Barcelona rental listings from Idealista, cleaned and analysed them with Python + SQL, mapped them with Open Geo Code, and built an interactive Tableau dashboard. (with the goal of practising my skills and showing them as a portfolio.
 
 **Goal:**
 Find the best-value districts, see where supply is highest, compare average sizes and rents, and figure out the price jump from one- to two-bedroom flats.
@@ -53,6 +53,7 @@ And because we want space for friends to visit:
 
 <details>
   <summary>Step 1 – Combining the raw files</summary
+
 
 For the first step, I used Python to combine all individual CSV files into one dataset. I loaded each file from the project folder, appended them to a list of DataFrames, and then concatenated everything into a single DataFrame. I saved this as a new CSV file and quickly explored its structure to check that everything had loaded correctly.
 
@@ -179,6 +180,7 @@ output_path = "/Users/sjoerdv/Documents/PERSOONLIJK/Portfolio/Data 27 jul/all_re
 df.to_csv(output_path, index=False)
 
 print(f"File saved with cleaned bedrooms column: {output_path}")
+```
 
 </details> <details> <summary> Step 4 – GeoData</summary>
 
