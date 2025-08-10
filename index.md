@@ -480,9 +480,6 @@ Given my goal of finding a furnished flat on a student budget with a second bedr
 
 ## What I learned (and Challenges I faced)
 
-<details>
-  <summary>What I learned</summary
-
 - Scraping data from Idealista was not the easiest, the website is well protected and the listings weren’t always consistent. I had to get creative by breaking the scraping into smaller batches and fixing some messy address data afterwards. One notable issue was that floor numbers sometimes got mixed up with bedroom counts, causing some apartments to show as having eight bedrooms. By regularly checking descriptive stats, I caught these errors and made sure the data made sense. This taught me the importance of continuous data validation.
 - I also ended up scraping more variables than I needed. Reflecting on this, I realise that taking more time upfront to clearly define the research questions and relevant variables can save effort later. Next time, I would focus more on identifying what data is truly necessary before diving deeper.
 
