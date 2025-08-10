@@ -68,7 +68,7 @@ And because we want space for friends to visit:
 <details>
   <summary>Step 1.1 – Combining the raw files</summary
 
-
+**Step overview**
 For the first step, I used Python to combine all individual CSV files into one dataset. I loaded each file from the project folder, appended them to a list of DataFrames, and then concatenated everything into a single DataFrame. I saved this as a new CSV file and quickly explored its structure to check that everything had loaded correctly.
 
 ```python
@@ -123,12 +123,11 @@ print(df.head())
 
 </details> <details> <summary>Step 1.2 – Cleaning up key columns</summary>
 
-
+**Step overview**
 In this step, I cleaned the price, size, and price-per-m² columns. The raw data included symbols like “€” and “m²”. I stripped those out so the values are now usable as proper numbers.
 - Converted price to price_clean, containing just the amount as a float.
 - Did the same for price_per_m2 and size, which now have clean numerical values in new columns.
 - Finally, I checked for missing values in those cleaned columns.
-
 
 
 ```python
@@ -167,7 +166,7 @@ print("size_clean:          ", df['size_clean'].notna().sum())
 </details> <details>
   <summary>Step 1.3 – Further cleaning</summary
 
-
+**Step overview**
 For step 1.3, I extracted and cleaned the number of bedrooms from the listing text, creating a numeric column for analysis.
 
 
@@ -198,6 +197,7 @@ print(f"File saved with cleaned bedrooms column: {output_path}")
 
 </details> <details> <summary> Step 1.4 – GeoData</summary>
 
+**Step overview**
 In this step i added the latitude and longitude for every apartment, through GeoData I can automate this process. By fillin gin the API and adding everything I made into geodata that I could later load into Tableau to make a visual representation of the barcelona map.
 
 ```python
@@ -256,7 +256,8 @@ print(f"\n✅ Geocoded file saved to: {output_path}")
 <details>
   <summary>Step 2.1 - Descriptive Statistics </summary
 
-In this step, I calculated the number of listings, average, minimum, maximum, and price variation for rentals in each district, then ranked districts by average price.
+**Step overview**
+In this step, I calculated key rental price statistics per district including the number of listings, average, minimum, maximum rents, and price variation. Subsequently, I ranked the districts by average rent to get a broad overview of the market.
 
 ```sql
 SELECT 
@@ -286,14 +287,16 @@ Let us take a look at the table:
 | "Ciutat Vella"        | 846                  | 1339.66     | 700         | 2000        | 303.65         |
 | "Horta Guinardó"      | 88                   | 1299.02     | 750         | 1995        | 284.45         |
 
-I observed that _Nou Barris_ and _Sant Andreu_ have very few listings compared to other districts. Given that exploratory analysis typically requires a minimum sample size of around 30 to be statistically meaningful, I will exclude these two districts in later steps. 
+**What I learned**
+_Nou Barris_ and _Sant Andreu_ have very few listings compared to other districts. Since exploratory analysis typically requires a sample size of around 30 to be statistically meaningful, I decided to exclude these two districts in later steps to ensure more reliable insights.
 
 </details>
 
 <details>
   <summary>Step 2.2 – Which districts give the best value for money (€/m²)? </summary
 
-In this step, I calculated how rental prices per square metre vary across districts (excluding _Sant Andreu_ and _Nou Barris_), by counting listings and finding the average, minimum, maximum, and standard deviation of price per m². Then I ordered the districts from cheapest to most expensive per square metre.
+**Step overview**
+In this step, I examined how rental prices per square metre vary across districts (excluding _Sant Andreu_ and _Nou Barris_). I counted listings and calculated average, minimum, maximum, and standard deviation of price per m², then ranked districts from cheapest to most expensive.
 
 ```sql
 SELECT 
@@ -321,7 +324,8 @@ ORDER BY avg_price_per_m2 ASC;
 | Eixample            |                434 |            26.15 |            10.83 |            61.67 |                6.84 |
 | Ciutat Vella        |                846 |            27.09 |            11.24 |               95 |                8.64 |
 
-_Horta Guinardó_ and _Les Corts_ offer the lowest average price per m², whilst maintaining a similar price variation to other districts. With noticeably lower averages and no greater volatility, these areas show the best value for money.
+**What I learned:**
+_Horta Guinardó_ and _Les Corts_ offer the lowest average price per square metre, with price variation comparable to other districts. Their noticeably lower averages combined with no greater volatility suggest these are the best value-for-money areas.
 
 <img src="https://github.com/sjoerd-verhagen/barcelona-rental-analysis/blob/main/value-for-money2" alt="Which districts give the best value for money" width="800">
 
@@ -331,7 +335,8 @@ _Horta Guinardó_ and _Les Corts_ offer the lowest average price per m², whilst
 <details>
   <summary>Step 2.3 – Where is the largest rental supply? </summary
 
-To understand where renters have the most choice and how consistent prices are, I calculated the number of listings per district along with the variance and standard deviation in rental prices. This highlights both the scale of the market in each area and how stable (or volatile) pricing tends to be.
+**Step overview**
+In this step, I examined rental price variability across districts (excluding _Sant Andreu_ and _Nou Barris_). I counted listings and calculated price variance and standard deviation, then ranked districts by price volatility.
 
 
 ```sql
@@ -357,6 +362,7 @@ ORDER BY price_stddev DESC;
 | Horta Guinardó      |                 88 |       80911.56 |        284.4 |
 | Les Corts           |                 66 |       87456.15 |        295.7 |
 
+**What I learned**
 The largest rental supply is found in _Ciutat Vella_, followed by _Eixample_. Among districts with substantial listings, _Sarrià-Sant Gervasi_ and _Sants-Montjuïc_ show the lowest price variability, reflected in their relatively low standard deviations, despite having higher average prices than _Les Corts_ and _Horta Guinardó_. The greatest price variance occurs in Sant Martí, indicating more fluctuation in rental costs there.
 
 </details>
@@ -364,6 +370,7 @@ The largest rental supply is found in _Ciutat Vella_, followed by _Eixample_. Am
 <details>
   <summary>Step 2.4 – What are the average sizes and rents by district? </summary
 
+**Step overview**
 To get a clearer picture of what each district offers, I calculated the average apartment size and rental price, along with the minimum, maximum, and standard deviation of rents. This helps understand not only the typical flat but also the range and variability of rental options available across Barcelona’s districts.  
 
 ```sql
@@ -399,7 +406,8 @@ _Horta Guinardó_ offers the best deal, combining the lowest average rent with t
 </details> <details>
   <summary>Step 2.5 – Comparing 1- and 2-bedroom apartments </summary
 
-This query looks at how much one- and two-bedroom flats cost in different districts, leaving out Sant Andreu and Nou Barris. It shows the average rents for both sizes and calculates how much more expensive two-bedrooms are compared to one-bedrooms, both in amount and percentage.
+**Step overview**
+To better understand what each district offers, I calculated the average apartment size and rental price, as well as the minimum, maximum, and variation in rents. This helps capture both the typical flats and the range of rental options across Barcelona.
 
 ```sql
 WITH rent_counts AS (
@@ -442,11 +450,17 @@ ORDER BY pct_diff ASC;
 
 <img src="https://github.com/sjoerd-verhagen/barcelona-rental-analysis/blob/main/rents-1b2b.png" alt="Which districts give the best value for money" width="800">
 
-Reviewing the data on rents, apartment sizes, and listings across districts, some key points stand out. _Ciutat Vella_ has the largest number of listings but the smallest average apartment size, making it less attractive for space. _Eixample_ and _Sarrià-Sant Gervasi_ have similar average rents and sizes, but _Eixample_ carries the second-highest rents overall.
+**What I learned:**
+_Horta Guinardó_ offers the best value, with the lowest average rent and the second-largest apartments. By comparison, _Ciutat Vella_ has similarly low rents but much smaller flats, making it less attractive when space is a priority.
 
-_Horta Guinardó_ and _Les Corts_ offer low rents and larger sizes but suffer from very limited availability, which could make finding a flat challenging.
+</details> <details>
+  <summary>Step 2.6 – Conclusion </summary
 
-Balancing these factors, _Sants-Montjuïc_ emerges as the best choice. It has a solid number of listings, relatively low rents for both one- and two-bedroom flats, and above-average apartment sizes. This makes it the most promising district to start searching for a spacious yet affordable rental.
+Key takeaways from the analysis show that _Horta Guinardó_ offers the best value for money with low rents and large apartments, but it suffers from limited availability. _Ciutat Vella_ provides many listings and low rents but has the smallest flats, which may not suit those needing extra space.
+
+_Sants-Montjuïc_ stands out with a good number of listings, the third-lowest rents, and decent apartment sizes. Similarly, _Sarrià-Sant Gervasi_ offers slightly larger flats with only a small increase in rent.
+
+Given my goal of finding a furnished flat on a student budget with a second bedroom for friends to stay over, Sants-Montjuïc and Sarrià-Sant Gervasi strike the best balance between price, space, and availability. These are the districts I’d prioritise in my search for a spacious, affordable rental with good options.
 
 </details>
 
