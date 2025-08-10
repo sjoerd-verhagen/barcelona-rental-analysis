@@ -309,13 +309,13 @@ ORDER BY avg_price_per_m2 ASC;
 
 _Horta Guinardó_ and _Les Corts_ offer the lowest average price per m², whilst maintaining a similar price variation to other districts. With noticeably lower averages and no greater volatility, these areas show the best value for money.
 
-<img src="https://github.com/sjoerd-verhagen/barcelona-rental-analysis/blob/main/value-for-money" alt="Which districts give the best value for money" width="600">
+<img src="https://github.com/sjoerd-verhagen/barcelona-rental-analysis/blob/main/value-for-money2" alt="Which districts give the best value for money" width="600">
 
 
 </details>
 
 <details>
-  <summary>Step 2.3 – Where is the largest rental supply? (with what variance?) (€/m²)? </summary
+  <summary>Step 2.3 – Where is the largest rental supply? </summary
 
 To understand where renters have the most choice and how consistent prices are, I calculated the number of listings per district along with the variance and standard deviation in rental prices. This highlights both the scale of the market in each area and how stable (or volatile) pricing tends to be.
 
