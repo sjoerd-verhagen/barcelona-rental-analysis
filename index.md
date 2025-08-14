@@ -7,7 +7,7 @@
 
 ---
 
-## TL;DR 
+## 📌 TL;DR 
 
 I scraped 2,218 rental listings from Idealista and used Python, SQL, and Tableau to analyse where to find the best-value rentals in Barcelona.
 
@@ -67,7 +67,7 @@ And because we want space for friends to visit:
 ## Part 1 – Cleaning the Raw Data
 
 <details>
-  <summary>Step 1.1 – Combining the raw files</summary
+  <summary>🏠 Step 1.1 – Combining the raw files</summary
 
 **Step overview**
 
@@ -123,7 +123,7 @@ print("\nFIRST 5 ROWS:")
 print(df.head())
 ```
 
-</details> <details> <summary>Step 1.2 – Cleaning up key columns</summary>
+</details> <details> <summary>🏠 Step 1.2 – Cleaning up key columns</summary>
 
 **Step overview**
 
@@ -167,7 +167,7 @@ print("size_clean:          ", df['size_clean'].notna().sum())
 ```
 
 </details> <details>
-  <summary>Step 1.3 – Further cleaning</summary
+  <summary>🏠 Step 1.3 – Further cleaning</summary
 
 **Step overview**
 
@@ -199,7 +199,7 @@ df.to_csv(output_path, index=False)
 print(f"File saved with cleaned bedrooms column: {output_path}")
 ```
 
-</details> <details> <summary> Step 1.4 – GeoData</summary>
+</details> <details> <summary>🏠 Step 1.4 – GeoData</summary>
 
 **Step overview**
 
@@ -259,7 +259,7 @@ print(f"\n✅ Geocoded file saved to: {output_path}")
 ## Part 2 – Data Analysis (SQL)
 
 <details>
-  <summary>Step 2.1 - Descriptive Statistics </summary
+  <summary>🏠 Step 2.1 - Descriptive Statistics </summary
 
 **Step overview**
 
@@ -300,7 +300,7 @@ _Nou Barris_ and _Sant Andreu_ have very few listings compared to other district
 </details>
 
 <details>
-  <summary>Step 2.2 – Which districts give the best value for money (€/m²)? </summary
+  <summary>🏠 Step 2.2 – Which districts give the best value for money (€/m²)? </summary
 
 **Step overview**
 
@@ -341,7 +341,7 @@ _Horta Guinardó_ and _Les Corts_ offer the lowest average price per square metr
 </details>
 
 <details>
-  <summary>Step 2.3 – Where is the largest rental supply? </summary
+  <summary>🏠 Step 2.3 – Where is the largest rental supply? </summary
 
 **Step overview**
 
@@ -378,7 +378,7 @@ The largest rental supply is found in _Ciutat Vella_, followed by _Eixample_. Am
 </details>
 
 <details>
-  <summary>Step 2.4 – What are the average sizes and rents by district? </summary
+  <summary>🏠 Step 2.4 – What are the average sizes and rents by district? </summary
 
 **Step overview**
 
@@ -417,7 +417,7 @@ ORDER BY avg_rent ASC;
 _Horta Guinardó_ offers the best deal, combining the lowest average rent with the second-largest apartment sizes. In contrast, _Ciutat Vella_ also has low rents but much smaller average apartment sizes, making _Horta Guinardó_ the better value for space and price.
 
 </details> <details>
-  <summary>Step 2.5 – Comparing 1- and 2-bedroom apartments </summary
+  <summary>🏠 Step 2.5 – Comparing 1- and 2-bedroom apartments </summary
 
 **Step overview**
 
@@ -469,7 +469,7 @@ ORDER BY pct_diff ASC;
 _Horta Guinardó_ offers the best value, with the lowest average rent and the second-largest apartments. By comparison, _Ciutat Vella_ has similarly low rents but much smaller flats, making it less attractive when space is a priority.
 
 </details> <details>
-  <summary>Step 2.6 – Conclusion </summary
+  <summary>🏠 Step 2.6 – Conclusion </summary
 
 Key takeaways from the analysis show that _Horta Guinardó_ offers the best value for money with low rents and large apartments, but it suffers from limited availability. _Ciutat Vella_ provides many listings and low rents but has the smallest flats, which may not suit those needing extra space.
 
