@@ -1,7 +1,7 @@
-# 🏙️ Barcelona Rental Market Analysis
+## 🏙️ Which Barcelona Districts Offer the Best Value for Money?
 
 **Author:** Sjoerd Verhagen  
-**Tools used:** SQL • Python • Tableau  
+**Tools used:** **SQL** (joins, aggregation, filtering, calculated fields), **Python** (data cleaning, regex, web scraping), **Tableau** (trend analysis, data visualisation), **Google Sheets** (data QA)  
 **Live Tableau dashboard:** [View Here](https://public.tableau.com/views/YOUR-DASHBOARD-LINK)
 
 
