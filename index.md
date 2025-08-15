@@ -1,4 +1,4 @@
-<img src="https://github.com/sjoerd-verhagen/barcelona-rental-analysis/blob/main/herograph.png" width="1000">
+<img src="https://github.com/sjoerd-verhagen/barcelona-rental-analysis/blob/main/headerbarca.png" width="1000">
 
 **Author:** Sjoerd Verhagen  
 **Tools used:** **SQL** (joins, aggregation, filtering, calculated fields), **Python** (data cleaning, regex, web scraping), **Tableau** (trend analysis, data visualisation), **Google Sheets** (data QA)  
