@@ -252,7 +252,7 @@ print(f"\n✅ Geocoded file saved to: {output_path}")
 </details>
 
 
-## Part 2 – Data Analysis (SQL)
+## Part 2 – Data Analysis 
 
 <details>
   <summary>🏠 Step 2.1 - Descriptive Statistics </summary
@@ -290,12 +290,10 @@ Let us take a look at the table:
 | "Horta Guinardó"      | 88                   | 1299.02     | 750         | 1995        | 284.45         |
 
 **What I learned**
+_Nou Barris_ and _Sant Andreu_ had very few listings compared to other districts. Since exploratory analysis usually needs a sample size of at least 30 for meaningful results, I excluded them from later steps to keep the insights reliable.
 
-_Nou Barris_ and _Sant Andreu_ have very few listings compared to other districts. Since exploratory analysis typically requires a sample size of around 30 to be statistically meaningful, I decided to exclude these two districts in later steps to ensure more reliable insights.
 
-</details>
-
-<details>
+</details> <details>
   <summary>🏠 Step 2.2 – Which districts give the best value for money (€/m²)? </summary
 
 **Step overview**
@@ -332,10 +330,9 @@ ORDER BY avg_price_per_m2 ASC;
 
 **What I learned:**
 
-_Horta Guinardó_ and _Les Corts_ offer the lowest average price per square metre, with price variation comparable to other districts. Their noticeably lower averages combined with no greater volatility suggest these are the best value-for-money areas.
+The overall average price per m² is **€24.86**. Only two districts fall below this: _Horta Guinardó_ and _Les Corts_, which have the lowest average prices per square metre and similar price variation to other districts. Their lower averages without greater volatility suggest they offer the best value for money, although they also have the fewest listings with 88 and 66 respectively.
 
 </details>
-
 <details>
   <summary>🏠 Step 2.3 – Where is the largest rental supply? </summary
 
