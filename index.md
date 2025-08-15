@@ -26,8 +26,8 @@ I scraped 2,218 rental listings from Idealista and used Python, SQL, and Tableau
 - S_arrià-Sant Gervasi_ and _Sants-Montjuïc_ show the most stable prices among districts with high supply
 
 **Final conclusion:**
-
 **_Sants-Montjuïc_** combines a low rent premium for two bedrooms with decent apartment sizes and good availability, while **_Sarrià-Sant Gervasi_** offers slightly larger flats for only a small extra cost. Based on my goal of finding a spacious, affordable flat with a second bedroom for guests, these are the two districts I’d prioritise.
+
 
 <img src="https://github.com/sjoerd-verhagen/barcelona-rental-analysis/blob/main/herograph3.png" width="1000">
 
