@@ -25,7 +25,7 @@ I scraped 2,218 rental listings from Idealista and used Python, SQL, and Tableau
 - _Ciutat Vella_ and _Eixample_ have the largest rental supply, but also the highest prices per m²
 - _Sarrià-Sant Gervasi_ and _Sants-Montjuïc_ show the most stable prices among districts with high supply
 
-**Final Conclusions**
+**Final Conclusion:**
 - **_Sants-Montjuïc_** combines low rent for two bedrooms with decent apartment sizes and good availability
 -  **_Sarrià-Sant Gervasi_** offers slightly larger flats for only a small extra cost.
 
