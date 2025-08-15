@@ -290,6 +290,7 @@ Let us take a look at the table:
 | "Horta Guinardó"      | 88                   | 1299.02     | 750         | 1995        | 284.45         |
 
 **What I learned**
+
 _Nou Barris_ and _Sant Andreu_ had very few listings compared to other districts. Since exploratory analysis usually needs a sample size of at least 30 for meaningful results, I excluded them from later steps to keep the insights reliable.
 
 
@@ -456,7 +457,7 @@ ORDER BY pct_diff ASC;
 | Ciutat Vella        |           371 |           286 |     1234.53 |        1474 |     239.47 |     19.4 |
 | Horta Guinardó      |            15 |            31 |     1096.87 |     1359.35 |     262.48 |    23.93 |
 
-<img src="https://github.com/sjoerd-verhagen/barcelona-rental-analysis/blob/main/rents-1b2b.png" alt="Which districts give the best value for money" width="800">
+<img src="https://github.com/sjoerd-verhagen/barcelona-rental-analysis/blob/main/bubble chart.png" alt="Which districts give the best value for money" width="800">
 
 **What I learned:**
 
