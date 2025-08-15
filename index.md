@@ -15,18 +15,18 @@ I scraped 2,218 rental listings from Idealista and used Python, SQL, and Tableau
 - Find districts with the best balance of rent, size, and availability
 
 **What I did:**
-- Compared average rent per square metre and price variation by district
+- Excluded _Nou Barris_ and _Sant Andreu_ due to too few listings for reliable analysis
+- Compared average rent per m² and price variation by district
 - Looked at average apartment sizes alongside rents
 - Compared supply and pricing differences between one- and two-bedroom flats
 
 **Key takeaway:**
-- _Horta Guinardó_ offers the best value for money with low rents and large apartments but has limited listings
-- _Ciutat Vella_ has many listings and low rents but the smallest flats
-- _Sants-Montjuïc_ has a good number of listings, low rents (third lowest), and decent apartment sizes
-- _Sarrià-Sant Gervasi_ offers slightly larger flats with only a small rent increase
+-_ Horta Guinardó _offers the best value, with the lowest average rent and the second-largest apartments, but has limited listings
+- _Ciutat Vella_ and _Eixample_ have the largest rental supply, but also the highest prices per m²
+- S_arrià-Sant Gervasi_ and _Sants-Montjuïc_ show the most stable prices among districts with high supply
 
 **Final conclusion:**
-_Sants-Montjuïc_ and _Sarrià-Sant Gervasi_ strike the best balance and are the districts I’d prioritise for finding a spacious, affordable flat with good availability.
+_Sants-Montjuïc_ combines a low rent premium for two bedrooms with decent apartment sizes and good availability, while _Sarrià-Sant Gervasi_ offers slightly larger flats for only a small extra cost. Based on my goal of finding a spacious, affordable flat with a second bedroom for guests, these are the two districts I’d prioritise.
 
 ---
 
@@ -457,20 +457,22 @@ ORDER BY pct_diff ASC;
 | Ciutat Vella        |           371 |           286 |     1234.53 |        1474 |     239.47 |     19.4 |
 | Horta Guinardó      |            15 |            31 |     1096.87 |     1359.35 |     262.48 |    23.93 |
 
-<img src="https://github.com/sjoerd-verhagen/barcelona-rental-analysis/blob/main/bubble chart.png" alt="Which districts give the best value for money" width="800">
+<img src="https://github.com/sjoerd-verhagen/barcelona-rental-analysis/blob/main/bubble chart.png" alt="Which districts give the best value for money" width="600">
 
 **What I learned:**
 
-_Horta Guinardó_ offers the best value, with the lowest average rent and the second-largest apartments. By comparison, _Ciutat Vella_ has similarly low rents but much smaller flats, making it less attractive when space is a priority.
+This bubble chart compares the average rent for one and two bedroom flats in each district. Bubble size shows the number of listings, and darker colour indicates a bigger difference in price between the two.
+
+It shows that _Horta Guinardó_ offers the best value, with the lowest average rent and the second-largest apartments. In contrast, _Ciutat Vella_ has similarly low rents but much smaller flats, making it less appealing if space is important. _Les Corts_ and _Sants-Montjuïc_ have the smallest price differences between one and two bedroom flats (4.11% and 7.63% respectively). _Sants-Montjuïc_ stands out here, combining a small price gap with reasonable apartment sizes.
 
 </details> <details>
   <summary>🏠 Step 2.6 – Conclusion </summary
 
-Key takeaways from the analysis show that _Horta Guinardó_ offers the best value for money with low rents and large apartments, but it suffers from limited availability. _Ciutat Vella_ provides many listings and low rents but has the smallest flats, which may not suit those needing extra space.
+Two districts, **_Nou Barris_** and **_Sant Andreu_**, had too few listings to analyse reliably, so I excluded them from the main results. Across the remaining areas, the average rent is **€24.86** per m². Only _**Horta Guinardó**_ and _**Les Corts**_ fall below this, offering the lowest prices per m² without higher volatility, although both have relatively few listings.
 
-_Sants-Montjuïc_ stands out with a good number of listings, the third-lowest rents, and decent apartment sizes. Similarly, _Sarrià-Sant Gervasi_ offers slightly larger flats with only a small increase in rent.
+_**Ciutat Vella**_ and _**Eixample**_ have the largest rental supply, but they also have the highest prices per m². Among districts with plenty of listings,_ **Sarrià-Sant Gervasi**_ and _**Sants-Montjuïc**_ show the most stable prices. _**Sant Martí**_ has the fifth lowest price per m² but the highest price variation, making its costs less predictable.
 
-Given my goal of finding a furnished flat on a student budget with a second bedroom for friends to stay over, Sants-Montjuïc and Sarrià-Sant Gervasi strike the best balance between price, space, and availability. These are the districts I’d prioritise in my search for a spacious, affordable rental with good options.
+_**Horta Guinardó**_ offers the best overall value, with the lowest average rent and the second-largest apartments, though supply is limited. _**Sants-Montjuïc**_ combines a low rent premium for two bedrooms with decent apartment sizes and good availability, while _**Sarrià-Sant Gervasi**_ offers slightly larger flats for only a small extra cost. Based on my goal of finding a spacious, affordable flat with a second bedroom for guests, _**Sants-Montjuïc**_ and _**Sarrià-Sant Gervasi**_ are the most promising districts to focus on.
 
 </details>
 
