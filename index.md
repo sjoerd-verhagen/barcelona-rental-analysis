@@ -326,7 +326,7 @@ ORDER BY avg_price_per_m2 ASC;
 | Eixample            |                434 |            26.15 |            10.83 |            61.67 |                6.84 |
 | Ciutat Vella        |                846 |            27.09 |            11.24 |               95 |                8.64 |
 
-<img src="https://github.com/sjoerd-verhagen/barcelona-rental-analysis/blob/main/value-for-money2" alt="Which districts give the best value for money" width="800">
+<img src="https://github.com/sjoerd-verhagen/barcelona-rental-analysis/blob/main/Value-for-money-v15aug.png" alt="Which districts give the best value for money" width="800">
 
 **What I learned:**
 
