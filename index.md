@@ -28,6 +28,7 @@ I scraped 2,218 rental listings from Idealista and used Python, SQL, and Tableau
 **Final Conclusions**
 - **_Sants-Montjuïc_** combines a low rent premium for two bedrooms with decent apartment sizes and good availability
 -  **_Sarrià-Sant Gervasi_** offers slightly larger flats for only a small extra cost.
+
 Based on my goal of finding a spacious, affordable flat with a second bedroom for guests, these are the two districts I’d prioritise.
 
 
