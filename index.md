@@ -330,7 +330,7 @@ ORDER BY avg_price_per_m2 ASC;
 
 **What I learned:**
 
-The overall average price per m² is **€24.86**. Only two districts fall below this: _Horta Guinardó_ and _Les Corts_, which have the lowest average prices per square metre and similar price variation to other districts. Their lower averages without greater volatility suggest they offer the best value for money, although they also have the fewest listings with 88 and 66 respectively.
+The overall average price per m² is **€24,86**. Only two districts fall below this: _Horta Guinardó_ and _Les Corts_, which have the lowest average prices per square metre and similar price variation to other districts. Their lower averages without greater volatility suggest they offer the best value for money, although they also have the fewest listings with 88 and 66 respectively.
 
 </details>
 <details>
@@ -338,7 +338,7 @@ The overall average price per m² is **€24.86**. Only two districts fall below
 
 **Step overview**
 
-In this step, I examined rental price variability across districts (excluding _Sant Andreu_ and _Nou Barris_). I counted listings and calculated price variance and standard deviation, then ranked districts by price volatility.
+In this step, I looked at how rental prices vary across districts, excluding _Sant Andreu_ and _Nou Barris_. I counted listings, measured price variance and standard deviation, and then ranked the districts by how volatile their rental prices are.
 
 
 ```sql
@@ -366,7 +366,7 @@ ORDER BY price_stddev DESC;
 
 **What I learned**
 
-The largest rental supply is found in _Ciutat Vella_, followed by _Eixample_. Among districts with substantial listings, _Sarrià-Sant Gervasi_ and _Sants-Montjuïc_ show the lowest price variability, reflected in their relatively low standard deviations, despite having higher average prices than _Les Corts_ and _Horta Guinardó_. The greatest price variance occurs in Sant Martí, indicating more fluctuation in rental costs there.
+The largest rental supply is in _Ciutat Vella_, followed by _Eixample_, which are also the two districts with the highest average price per m² (see step 2.3). Among districts with plenty of listings, _Sarrià-Sant Gervasi_ and _Sants-Montjuïc_ have the lowest price variability, shown by their relatively small standard deviations, despite higher average prices than _Les Corts_ and _Horta Guinardó_ (as seen in section 2.3). _Sant Martí_ shows the greatest price variance, even though it has the fifth lowest average price per m², suggesting more fluctuation in rental costs there. 
 
 </details>
 
@@ -375,7 +375,7 @@ The largest rental supply is found in _Ciutat Vella_, followed by _Eixample_. Am
 
 **Step overview**
 
-To get a clearer picture of what each district offers, I calculated the average apartment size and rental price, along with the minimum, maximum, and standard deviation of rents. This helps understand not only the typical flat but also the range and variability of rental options available across Barcelona’s districts.  
+To get a clearer view of what each district offers, I calculated the average apartment size and rental price, as well as the minimum, maximum and standard deviation of rents. This shows not only the typical flat you might find, but also the range and variability of rental options across Barcelona’s districts.
 
 ```sql
 SELECT 
@@ -407,14 +407,15 @@ ORDER BY avg_rent ASC;
 
 **What I learned**
 
-_Horta Guinardó_ offers the best deal, combining the lowest average rent with the second-largest apartment sizes. In contrast, _Ciutat Vella_ also has low rents but much smaller average apartment sizes, making _Horta Guinardó_ the better value for space and price.
+_Horta Guinardó_ offers the best deal, combining the lowest average rent with the second-largest apartment sizes, although it has the second fewest listings at 88. _Ciutat Vella_ also has low rents but much smaller apartments, making _Horta Guinardó_ the better value for both space and price. _Sants-Montjuïc_ ranks third for lowest average rent yet has the second smallest apartments. The graph shows a general pattern where average apartment size increases with average rent, though _Les Corts_ stands out by having the largest average size despite higher rents.
+
 
 </details> <details>
   <summary>🏠 Step 2.5 – Comparing 1- and 2-bedroom apartments </summary
 
 **Step overview**
 
-To better understand what each district offers, I calculated the average apartment size and rental price, as well as the minimum, maximum, and variation in rents. This helps capture both the typical flats and the range of rental options across Barcelona.
+To better understand what each district offers, I compared one and two bedroom apartments by looking at their average size, rent, and the variation in rents. This not only shows the typical flats available and the range of rental options, but also answers a key question for our move: how much extra we would need to pay for a second bedroom so friends and family can stay over.
 
 ```sql
 WITH rent_counts AS (
