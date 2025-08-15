@@ -21,7 +21,7 @@ I scraped 2,218 rental listings from Idealista and used Python, SQL, and Tableau
 - Compared supply and pricing differences between one- and two-bedroom flats
 
 **Key takeaway:**
--_ Horta Guinardó _offers the best value, with the lowest average rent and the second-largest apartments, but has limited listings
+-_Horta Guinardó_ offers the best value, with the lowest average rent and the second-largest apartments, but has limited listings
 - _Ciutat Vella_ and _Eixample_ have the largest rental supply, but also the highest prices per m²
 - S_arrià-Sant Gervasi_ and _Sants-Montjuïc_ show the most stable prices among districts with high supply
 
