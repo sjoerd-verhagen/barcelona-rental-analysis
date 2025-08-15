@@ -366,7 +366,7 @@ ORDER BY price_stddev DESC;
 
 **What I learned**
 
-The largest rental supply is in _Ciutat Vella_, followed by _Eixample_, which are also the two districts with the highest average price per m² (see step 2.3). Among districts with plenty of listings, _Sarrià-Sant Gervasi_ and _Sants-Montjuïc_ have the lowest price variability, shown by their relatively small standard deviations, despite higher average prices than _Les Corts_ and _Horta Guinardó_ (as seen in section 2.3). _Sant Martí_ shows the greatest price variance, even though it has the fifth lowest average price per m², suggesting more fluctuation in rental costs there. 
+The largest rental supply is in _Ciutat Vella_, followed by _Eixample_, which are also the two districts with the highest average price per m² (see step 2.2). Among districts with plenty of listings, _Sarrià-Sant Gervasi_ and _Sants-Montjuïc_ have the lowest price variability, shown by their relatively small standard deviations, despite higher average prices than _Les Corts_ and _Horta Guinardó_ (as seen in section 2.2). _Sant Martí_ shows the greatest price variance, even though it has the fifth lowest average price per m², suggesting more fluctuation in rental costs there. 
 
 </details>
 
