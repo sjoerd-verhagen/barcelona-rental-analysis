@@ -32,25 +32,21 @@ _Sants-Montjuïc_ and _Sarrià-Sant Gervasi_ strike the best balance and are the
 
 ## 🎯 Background & Project
 
-My girlfriend and I are moving to Barcelona in September 2025. I saw an opportunity to make our house hunt double as a data project, using my Python, SQL and Tableau skills to explore the city’s rental market.
+My girlfriend and I are moving to **Barcelona** in **September 2025**, and I decided to turn our house hunt into a **data project**. Using **Python**, **SQL** and **Tableau**, I analysed rental listings from Idealista, Barcelona’s most popular housing platform, to see which neighbourhoods might suit us before we even start viewing flats in person.
 
-I scraped 2,218 listings from Idealista, Barcelona’s most popular housing platform, focusing on furnished flats under €2,000 a month — realistic for our starter budget and ideal since we’re not bringing furniture from the UK or the Netherlands. The dataset included price, size, location and number of bedrooms.
+I scraped **2,218 listings**, focusing on **furnished flats under €2,000 a month**. This fits our starter budget and makes sense since we are not bringing furniture from the **UK** or the **Netherlands**. The dataset included **price**, **size**, **location** and **number of bedrooms**.
 
-The goal? To pinpoint which neighbourhoods fit our needs, get a feel for the city, and see which areas offer the best options for our move.
+The aim was simple: find **neighbourhoods that fit our needs**, get an early feel for the city, and see **where the best options are** for our move. And because we want space for friends to visit, I also looked at **how much extra a two bedroom flat costs compared to a one bedroom**.
 
 ---
 
 ## 🔍 Key Questions
 
-With the data in hand, I set out to answer some practical questions (the kind that actually matter when you’re moving somewhere new):
-
+With the data in hand, I set out to answer some practical questions — the kind that actually matter when you are moving somewhere new:
 - Which districts offer the best value for money (€/m²)?
 - Which districts have the largest rental supply?
 - What are the average sizes and rents by district?
-
-And because we want space for friends to visit:
-- How much extra does a two-bedroom flat cost compared to a one-bedroom?
-
+- How much more does a two bedroom flat cost than a one bedroom?
 ---
 
 ## 🛠️ Tools Used
@@ -58,8 +54,8 @@ And because we want space for friends to visit:
 1. Open Web Scraper for collecting rental data
 2. Python for cleaning and preparing the data
 3. Google Sheets – quick quality checks on the scraped data
-4.  Open Geo Code for mapping coordinates (python supported)
-5.  SQL for queries and data analysis
+4. Open Geo Code for mapping coordinates (python supported)
+5. SQL for queries and data analysis
 6. Tableau for creating clear visual insights and dashboard
 
 ---
