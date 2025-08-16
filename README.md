@@ -253,7 +253,7 @@ df[['latitude', 'longitude', 'country_code', 'timezone']] = df['full_address'].p
 # Save results
 output_path = "/Users/sjoerdv/Documents/PERSOONLIJK/Portfolio/Data 27 jul/all_rent_data_geocoded.csv"
 df.to_csv(output_path, index=False)
-print(f"\n✅ Geocoded file saved to: {output_path}")
+print(f"\n Geocoded file saved to: {output_path}")
 ```
 </details>
 
