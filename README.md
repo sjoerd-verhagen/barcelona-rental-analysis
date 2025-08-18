@@ -22,14 +22,14 @@ I scraped 2,218 rental listings from Idealista and used Python, SQL, and Tableau
 
 **Key takeaway:**
 - _Horta Guinardó_ offers the best value, with the lowest average rent and the second-largest apartments, but has limited listings
-- _Ciutat Vella_ and _Eixample_ have the largest rental supply, but also the highest prices per m²
-- _Sarrià-Sant Gervasi_ and _Sants-Montjuïc_ show the most stable prices among districts with high supply
+- _Ciutat Vella_ has the largest rental supply, but also the highest prices per m²
+- _Sarrià-Sant Gervasi_ and _Sants-Montjuïc_ show the most stable prices among districts with sufficient supply
 
 **Final Conclusion:**
 - **_Sants-Montjuïc_** combines low rent for two bedrooms with decent apartment sizes and good availability
 -  **_Sarrià-Sant Gervasi_** offers slightly larger flats for only a small extra cost.
 
-Based on my goal of finding a spacious, affordable flat with a second bedroom for guests, these are the two districts I’d prioritise.
+For a spacious, affordable flat with room for guests, Sants-Montjuïc and Sarrià-Sant Gervasi stand out as the best districts to focus my search.
 
 
 <img src="https://github.com/sjoerd-verhagen/barcelona-rental-analysis/blob/main/herograph4.png" width="1000">
@@ -57,12 +57,12 @@ With the data in hand, I set out to answer some practical questions — the kind
 
 ## 🛠️ Tools Used
 
-1. Open Web Scraper for collecting rental data
-2. Python for cleaning and preparing the data
-3. Google Sheets – quick quality checks on the scraped data
-4. Open Geo Code for mapping coordinates (python supported)
-5. SQL for queries and data analysis
-6. Tableau for creating clear visual insights and dashboard
+1. **Open Web Scraper** for collecting rental data
+2. **Python** for cleaning and preparing the data
+3. **Google Sheets** – quick quality checks on the scraped data
+4. **Open Geo Code** for mapping coordinates (python supported)
+5. **SQL** for queries and data analysis
+6. **Tableau** for creating clear visual insights and dashboard
 
 ---
 
@@ -410,7 +410,9 @@ ORDER BY avg_rent ASC;
 | Eixample            |                434 |       65.59 |  1611.85 |      750 |     2000 |      293.27 |
 | Sant Martí          |                134 |       66.08 |  1627.01 |      650 |     2000 |      320.09 |
 
-<img src="https://github.com/sjoerd-verhagen/barcelona-rental-analysis/blob/main/rent-vs-size" alt="Average Rent vs Apartment Size by District" width="800">
+<img src="https://github.com/sjoerd-verhagen/barcelona-rental-analysis/blob/main/space vs rent.png" width="800">
+
+
 
 **What I learned**
 
