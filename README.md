@@ -416,7 +416,7 @@ ORDER BY avg_rent ASC;
 
 **What I learned**
 
-_Horta Guinardó_ offers the best deal, combining the lowest average rent with the second-largest apartment sizes, although it has the second fewest listings at 88. _Ciutat Vella_ also has low rents but much smaller apartments, making _Horta Guinardó_ the better value for both space and price. _Sants-Montjuïc_ ranks third for lowest average rent yet has the second smallest apartments. The graph shows a general pattern where average apartment size increases with average rent, though _Les Corts_ stands out by having the largest average size despite higher rents.
+_Horta Guinardó_ offers the best deal, with the lowest average rent and the second-largest apartment sizes, though it has relatively few listings (88). In contrast, _Ciutat Vella_ also has low rents but much smaller apartments, despite having by far the largest supply of listings. _Sants-Montjuïc_ ranks third for lowest rent and has slightly more listings than Horta, but its apartments are the second smallest. _Sarrià-Sant Gervasi_ sits just above average in rent and just below average in size. _Les Corts_ stands out with the largest apartments, though at higher rents and with a limited number of listings. Overall, the pattern shows that larger flats generally come with higher rents.
 
 
 </details> <details>
