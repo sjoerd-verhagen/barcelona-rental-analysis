@@ -465,7 +465,7 @@ ORDER BY pct_diff ASC;
 | Ciutat Vella        |           371 |           286 |     1234.53 |        1474 |     239.47 |     19.4 |
 | Horta Guinardó      |            15 |            31 |     1096.87 |     1359.35 |     262.48 |    23.93 |
 
-<img src="https://github.com/sjoerd-verhagen/barcelona-rental-analysis/blob/main/bubble chart.png" alt="Which districts give the best value for money" width="1000">
+<img src="https://github.com/sjoerd-verhagen/barcelona-rental-analysis/blob/main/bubble chart.png" alt="Which districts give the best value for money" width="600">
 
 **What I learned:**
 
